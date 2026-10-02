@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="es" data-theme="claro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Órbita Creativa</title>
+  <meta name="description" content="Agencia de diseño y desarrollo web. Estrategia, branding, sitios y contenido para emprendedoras, emprendedores y pymes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300&display=swap" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/sitio.css" />
+  <script>
+    // Antes de pintar: activa las animaciones y aplica el modo guardado.
+    document.documentElement.classList.add('js');
+    try {
+      var modo = localStorage.getItem('oc-modo');
+      if (modo === 'oscuro' || modo === 'claro') document.documentElement.dataset.theme = modo;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <!-- Precarga: spinner + letras de la marca, se retira con paneles verticales. -->
+  <div class="precarga" aria-hidden="true">
+    <div class="precarga__animacion">
+      <div class="precarga__spinner"></div>
+      <div class="precarga__letras">
+        <span data-letra="Ó" class="precarga__letra">Ó</span><span data-letra="R" class="precarga__letra">R</span><span data-letra="B" class="precarga__letra">B</span><span data-letra="I" class="precarga__letra">I</span><span data-letra="T" class="precarga__letra">T</span><span data-letra="A" class="precarga__letra">A</span>
+      </div>
+      <p class="precarga__texto">Cargando</p>
+    </div>
+    <div class="precarga__paneles"><span></span><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- Cursor personalizado (solo con mouse). -->
+  <div class="cursor cursor--exterior" aria-hidden="true"></div>
+  <div class="cursor cursor--interior" aria-hidden="true"></div>
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="encabezado" id="encabezado">
+    <div class="encabezado__barra contenedor">
+      <a class="encabezado__logo" href="#inicio" aria-label="Órbita Creativa, inicio">
+        <svg class="logo" width="115" height="50" aria-hidden="true" focusable="false" viewBox="0 0 115 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_41_2198)">
+<path d="M23.6807 43.5032C23.6807 44.3097 23.8058 45.0415 24.0583 45.6988C24.3103 46.3566 24.6704 46.9195 25.1381 47.3881C25.6064 47.8561 26.1641 48.2149 26.8113 48.4632C27.459 48.7127 28.1799 48.8375 28.9709 48.8375C30.2307 48.8375 31.2688 48.5349 32.0845 47.9302C32.9009 47.3255 33.4761 46.4784 33.8127 45.3878H35.1076C34.9287 46.0874 34.658 46.7148 34.2979 47.2723C33.9378 47.8299 33.5003 48.3038 32.9843 48.6942C32.4676 49.0858 31.8749 49.3855 31.2029 49.5926C30.5304 49.7998 29.7866 49.9037 28.9709 49.9037C27.9878 49.9037 27.0935 49.7496 26.2892 49.4416C25.4856 49.1336 24.7955 48.7008 24.2203 48.1439C23.6444 47.5863 23.2009 46.9142 22.8885 46.1256C22.5755 45.3376 22.4208 44.4631 22.4208 43.5032C22.4208 42.5433 22.5755 41.6694 22.8885 40.8808C23.2009 40.0923 23.6444 39.4201 24.2203 38.8632C24.7955 38.3056 25.4856 37.8734 26.2892 37.5654C27.0935 37.2568 27.9878 37.1028 28.9709 37.1028C29.7866 37.1028 30.5304 37.2067 31.2029 37.4138C31.8749 37.6215 32.4676 37.9206 32.9843 38.3116C33.5003 38.7026 33.9378 39.1772 34.2979 39.7341C34.658 40.2911 34.9287 40.9191 35.1076 41.6187H33.8127C33.4761 40.5281 32.9009 39.6804 32.0845 39.0763C31.2688 38.4716 30.2307 38.1695 28.9709 38.1695C28.1799 38.1695 27.459 38.2937 26.8113 38.5426C26.1641 38.7915 25.6064 39.1503 25.1381 39.6183C24.6704 40.0869 24.3103 40.6498 24.0583 41.3071C23.8058 41.9655 23.6807 42.6973 23.6807 43.5032Z" fill="currentColor"/>
+<path d="M38.0052 49.726H36.7454V45.139C36.7454 44.4633 36.8541 43.8496 37.0693 43.2987C37.2856 42.7477 37.5943 42.2767 37.9962 41.8851C38.3986 41.4935 38.8838 41.192 39.4536 40.9783C40.024 40.7652 40.6621 40.6584 41.3709 40.6584V41.8141C40.8663 41.8141 40.4077 41.8887 39.9944 42.0367C39.5805 42.1848 39.2258 42.3979 38.9321 42.676C38.6379 42.9548 38.4107 43.2897 38.2481 43.6813C38.0862 44.0723 38.0052 44.5105 38.0052 44.997V49.726Z" fill="currentColor"/>
+<path d="M50.0087 44.1786C49.8166 43.4204 49.442 42.836 48.8842 42.4277C48.3259 42.0188 47.6153 41.8141 46.7506 41.8141C45.912 41.8141 45.1977 42.0272 44.6098 42.454C44.0213 42.8808 43.6261 43.4563 43.4219 44.1786H50.0087ZM43.2774 45.3342C43.2774 45.8446 43.3645 46.3067 43.5391 46.7209C43.7125 47.1364 43.95 47.4946 44.2497 47.7972C44.5494 48.0993 44.9119 48.3327 45.3385 48.4992C45.7645 48.6652 46.2358 48.7482 46.7506 48.7482C47.6262 48.7482 48.3471 48.5231 48.9102 48.0724C49.4752 47.6223 49.8528 47.0176 50.045 46.2589H51.3042C51.1127 47.3734 50.6172 48.2593 49.8202 48.9165C49.0214 49.5743 47.9984 49.9038 46.7506 49.9038C46.0437 49.9038 45.399 49.7934 44.8165 49.5743C44.2346 49.3558 43.7367 49.0413 43.3228 48.6324C42.9089 48.2234 42.588 47.7345 42.3602 47.1651C42.1318 46.5968 42.0176 45.9688 42.0176 45.2811C42.0176 44.5815 42.1318 43.9505 42.3602 43.3876C42.588 42.8247 42.9089 42.3388 43.3228 41.9293C43.7367 41.521 44.2346 41.207 44.8165 40.9879C45.399 40.7688 46.0437 40.6584 46.7506 40.6584C47.4473 40.6584 48.077 40.7593 48.6413 40.9604C49.2045 41.1622 49.6849 41.4469 50.08 41.8141C50.4764 42.1818 50.7785 42.6259 50.99 43.1476C51.1997 43.6688 51.3042 44.2562 51.3042 44.908V45.3342H43.2774Z" fill="currentColor"/>
+<path d="M55.0112 47.8235C55.6106 48.4401 56.4445 48.7482 57.5134 48.7482C58.172 48.7482 58.7279 48.6622 59.1775 48.4903C59.6276 48.3184 59.9902 48.0814 60.2657 47.7793C60.5425 47.4767 60.7437 47.1125 60.8688 46.6857C60.995 46.2589 61.0579 45.7909 61.0579 45.2811C61.0579 44.2024 60.7491 43.3548 60.1322 42.7387C59.5134 42.1227 58.6645 41.8141 57.5847 41.8141C57.0693 41.8141 56.5979 41.9006 56.172 42.0719C55.746 42.2439 55.3798 42.4808 55.0746 42.7829C54.7683 43.0856 54.5314 43.4497 54.3641 43.8765C54.1949 44.3033 54.1115 44.7719 54.1115 45.2811C54.1115 46.3598 54.4112 47.2074 55.0112 47.8235ZM53.1846 43.4497C53.4063 42.8695 53.7248 42.371 54.1393 41.9561C54.5532 41.5419 55.0505 41.2213 55.633 40.9962C56.2136 40.7712 56.865 40.6584 57.5847 40.6584C58.2935 40.6584 58.9382 40.7688 59.5201 40.9879C60.1014 41.207 60.5999 41.521 61.0132 41.9293C61.4271 42.3388 61.7473 42.8277 61.9763 43.3966C62.2035 43.9654 62.3177 44.5934 62.3177 45.2811V49.726H61.0579V48.0366H60.879V48.1966C60.879 48.3512 60.8095 48.5255 60.6712 48.7213C60.5328 48.9171 60.3207 49.1039 60.0319 49.2812C59.7443 49.4591 59.3847 49.6078 58.9521 49.726C58.5207 49.8441 58.0167 49.9038 57.4409 49.9038C56.7683 49.9038 56.1514 49.7934 55.5876 49.5743C55.0233 49.3558 54.5411 49.0478 54.1393 48.6503C53.7368 48.2533 53.4214 47.7763 53.1942 47.2194C52.9658 46.6618 52.8516 46.0452 52.8516 45.3701C52.8516 44.6704 52.9622 44.0305 53.1846 43.4497Z" fill="currentColor"/>
+<path d="M68.8514 42.0629H65.0356V40.9431H68.8514V42.0629ZM66.6102 49.4859C65.9921 49.3259 65.4857 49.074 65.0893 48.7302C64.6935 48.3869 64.4059 47.9416 64.2259 47.3966C64.0458 46.8522 63.9558 46.1938 63.9558 45.4231V38.9869H65.2156V45.5652C65.2156 46.1347 65.2791 46.6087 65.4041 46.9883C65.5304 47.3674 65.7341 47.6754 66.0162 47.9124C66.2984 48.1494 66.67 48.3183 67.1323 48.4192C67.5933 48.5201 68.1667 48.5702 68.8514 48.5702V49.7259C67.9746 49.7259 67.2277 49.6459 66.6102 49.4859Z" fill="currentColor"/>
+<path d="M70.5602 40.8362H71.82V49.7259H70.5602V40.8362ZM70.6055 37.325C70.7559 37.1769 70.9499 37.1029 71.191 37.1029C71.4303 37.1029 71.6249 37.1769 71.7753 37.325C71.9246 37.4736 72.0001 37.6659 72.0001 37.9022C72.0001 38.1518 71.9246 38.347 71.7753 38.4896C71.6249 38.6317 71.4303 38.7027 71.191 38.7027C70.9499 38.7027 70.7559 38.6317 70.6055 38.4896C70.455 38.347 70.3801 38.1518 70.3801 37.9022C70.3801 37.6659 70.455 37.4736 70.6055 37.325Z" fill="currentColor"/>
+<path d="M73.6195 40.8362H74.8793V48.4813C75.0231 48.4813 75.257 48.4848 75.5815 48.4902C75.9053 48.4968 76.2745 48.4604 76.6884 48.384C77.103 48.3064 77.5308 48.1732 77.9749 47.984C78.4184 47.7942 78.8202 47.5011 79.181 47.1035C79.5411 46.7066 79.8408 46.1848 80.0801 45.5389C80.3212 44.893 80.4408 44.0842 80.4408 43.1118V40.8362H81.7007V42.9518C81.7007 44.0072 81.5593 44.9527 81.2777 45.7879C80.9955 46.6236 80.5901 47.3321 80.0632 47.9124C79.5344 48.4932 78.8933 48.9409 78.1374 49.2549C77.3815 49.5689 76.5289 49.7259 75.5815 49.7259H73.6195V40.8362Z" fill="currentColor"/>
+<path d="M85.2626 47.8235C85.8627 48.4401 86.6965 48.7482 87.7648 48.7482C88.4241 48.7482 88.98 48.6622 89.4289 48.4903C89.8797 48.3184 90.2416 48.0814 90.5178 47.7793C90.7945 47.4767 90.9951 47.1125 91.1208 46.6857C91.2471 46.2589 91.3093 45.7909 91.3093 45.2811C91.3093 44.2024 91.0012 43.3548 90.3836 42.7387C89.7655 42.1227 88.9159 41.8141 87.8361 41.8141C87.3213 41.8141 86.85 41.9006 86.4234 42.0719C85.9974 42.2439 85.6318 42.4808 85.3261 42.7829C85.0203 43.0856 84.7829 43.4497 84.6161 43.8765C84.4463 44.3033 84.3629 44.7719 84.3629 45.2811C84.3629 46.3598 84.6632 47.2074 85.2626 47.8235ZM83.436 43.4497C83.6578 42.8695 83.9768 42.371 84.3907 41.9561C84.8046 41.5419 85.3019 41.2213 85.8844 40.9962C86.4657 40.7712 87.1171 40.6584 87.8361 40.6584C88.5449 40.6584 89.1896 40.7688 89.7715 40.9879C90.3528 41.207 90.8519 41.521 91.2646 41.9293C91.6785 42.3388 91.9994 42.8277 92.2278 43.3966C92.455 43.9654 92.5692 44.5934 92.5692 45.2811V49.726H91.3093V48.0366H91.1305V48.1966C91.1305 48.3512 91.0616 48.5255 90.9232 48.7213C90.7848 48.9171 90.5727 49.1039 90.2839 49.2812C89.9957 49.4591 89.6368 49.6078 89.2035 49.726C88.7721 49.8441 88.2682 49.9038 87.6923 49.9038C87.0204 49.9038 86.4029 49.7934 85.8397 49.5743C85.2747 49.3558 84.7925 49.0478 84.3907 48.6503C83.9889 48.2533 83.6735 47.7763 83.4463 47.2194C83.2173 46.6618 83.1031 46.0452 83.1031 45.3701C83.1031 44.6704 83.2142 44.0305 83.436 43.4497Z" fill="currentColor"/>
+<path d="M44.3772 34.735H37.9704V27.0297C37.9704 25.2179 38.217 23.6295 38.707 22.2649C39.1964 20.9003 39.8992 19.7643 40.817 18.8581C41.7331 17.9525 42.8316 17.2708 44.1132 16.8112C45.3948 16.3527 46.8263 16.1223 48.4082 16.1223V22.4505C47.8057 22.4505 47.2601 22.5317 46.7701 22.6929C46.2794 22.8546 45.8595 23.0904 45.5078 23.3997C45.1555 23.7107 44.88 24.1011 44.6782 24.5726C44.4775 25.0442 44.3772 25.5904 44.3772 26.2101V34.735Z" fill="currentColor"/>
+<path d="M62.8598 22.7297C62.2187 22.048 61.3589 21.7065 60.2791 21.7065C59.751 21.7065 59.2724 21.7991 58.8464 21.9853C58.4186 22.171 58.0482 22.4265 57.7346 22.7488C57.4204 23.0712 57.1818 23.4622 57.0192 23.9212C56.8555 24.3809 56.7745 24.8835 56.7745 25.4285C56.7745 26.5454 57.0941 27.445 57.7346 28.1273C58.3757 28.8102 59.2229 29.151 60.2791 29.151C60.8054 29.151 61.2888 29.0585 61.7293 28.8723C62.168 28.686 62.539 28.4317 62.8405 28.1088C63.1414 27.7864 63.3801 27.3954 63.5565 26.9358C63.7312 26.4773 63.82 25.9747 63.82 25.4285C63.82 24.3116 63.5003 23.4132 62.8598 22.7297ZM69.4715 29.3749C68.9948 30.6404 68.3234 31.6952 67.4569 32.5387C66.5905 33.3822 65.5469 34.0221 64.3294 34.4561C63.11 34.8901 61.7595 35.1073 60.2791 35.1073C58.7957 35.1073 57.4458 34.8775 56.227 34.4185C55.0089 33.9594 53.966 33.3016 53.0995 32.4456C52.233 31.5889 51.5617 30.5658 51.0849 29.3749C50.6064 28.1834 50.3677 26.8683 50.3677 25.4285V6.81639H56.7745V20.1426H57.1509V19.7701C57.1509 19.2495 57.2694 18.7469 57.5093 18.2628C57.7473 17.7793 58.0924 17.3507 58.5455 16.9788C58.9969 16.6063 59.5431 16.3084 60.1836 16.0857C60.8241 15.8619 61.5589 15.7502 62.3891 15.7502C63.5692 15.7502 64.6424 15.9675 65.6104 16.4009C66.576 16.8361 67.3995 17.4569 68.0787 18.2628C68.7561 19.0693 69.2775 20.0441 69.6419 21.1848C70.0063 22.3268 70.1887 23.6048 70.1887 25.019C70.1887 26.657 69.9489 28.1088 69.4715 29.3749Z" fill="currentColor"/>
+<path d="M72.7125 16.1228H79.1193V34.7355H72.7125V16.1228ZM73.3167 9.14266C73.9687 8.56004 74.8352 8.26754 75.9162 8.26754C76.996 8.26754 77.8631 8.56004 78.5163 9.14266C79.1689 9.72587 79.4958 10.4888 79.4958 11.4325C79.4958 12.4002 79.1689 13.1697 78.5163 13.7398C77.8631 14.311 76.996 14.5964 75.9162 14.5964C74.8352 14.5964 73.9687 14.311 73.3167 13.7398C72.6629 13.1697 72.3354 12.4002 72.3354 11.4325C72.3354 10.4888 72.6629 9.72587 73.3167 9.14266Z" fill="currentColor"/>
+<path d="M93.362 21.9292H83.8657V16.3454H93.362V21.9292ZM87.9926 33.8418C86.4971 33.2455 85.2796 32.359 84.3364 31.1801C83.3949 30.0017 82.7037 28.5499 82.2644 26.8241C81.8257 25.1002 81.6046 23.1207 81.6046 20.887V12.251H88.0494V21.8922C88.0494 22.9846 88.1371 23.9338 88.3117 24.7397C88.4881 25.5467 88.7764 26.2165 89.1788 26.7495C89.5806 27.2838 90.1214 27.6939 90.7994 27.9781C91.4779 28.264 92.3317 28.4066 93.362 28.4066V34.7348C91.2761 34.7348 89.4869 34.437 87.9926 33.8418Z" fill="currentColor"/>
+<path d="M102.536 28.1275C103.177 28.8104 104.024 29.1507 105.08 29.1507C105.607 29.1507 106.084 29.0581 106.512 28.8719C106.938 28.6862 107.308 28.4314 107.623 28.1084C107.936 27.7867 108.175 27.3951 108.339 26.936C108.502 26.477 108.583 25.9749 108.583 25.4287C108.583 24.3118 108.264 23.4128 107.623 22.7299C106.982 22.0476 106.134 21.7062 105.08 21.7062C104.552 21.7062 104.074 21.7987 103.647 21.985C103.22 22.1712 102.85 22.4267 102.536 22.7484C102.221 23.0714 101.983 23.4618 101.82 23.9214C101.656 24.3805 101.575 24.8831 101.575 25.4287C101.575 26.5456 101.895 27.4446 102.536 28.1275ZM95.8858 21.4823C96.3632 20.2174 97.0345 19.1626 97.901 18.3185C98.7675 17.4756 99.8104 16.8363 101.029 16.4011C102.247 15.9672 103.597 15.7499 105.08 15.7499C106.561 15.7499 107.911 15.9797 109.13 16.4388C110.348 16.8984 111.391 17.5556 112.258 18.4123C113.125 19.2683 113.796 20.292 114.273 21.4823C114.75 22.6738 114.99 23.9895 114.99 25.4287V34.7351H108.583V30.7147H108.206V31.0872C108.206 31.6083 108.094 32.1103 107.868 32.5944C107.642 33.078 107.303 33.5066 106.85 33.8785C106.399 34.251 105.846 34.5488 105.193 34.7721C104.539 34.9953 103.798 35.107 102.97 35.107C101.789 35.107 100.722 34.8897 99.7663 34.4563C98.8116 34.0217 97.9898 33.4009 97.2986 32.5944C96.6079 31.7886 96.0798 30.8138 95.7161 29.6724C95.3517 28.531 95.1692 27.2524 95.1692 25.8382C95.1692 24.2002 95.4079 22.7484 95.8858 21.4823Z" fill="currentColor"/>
+<path d="M18.4224 22.823L18.2502 23.4796L18.0762 22.823C17.4719 20.5259 16.1498 18.7166 14.4706 17.8868L13.9897 17.651L14.4706 17.4129C16.1498 16.5831 17.4719 14.7762 18.0762 12.4791L18.2502 11.8201L18.4224 12.4791C19.0285 14.7762 20.3512 16.5831 22.0298 17.4129L22.5095 17.651" fill="currentColor"/>
+<path d="M18.3469 0.00501553V0.000240326C18.3143 0.000240326 18.2822 0.00262793 18.2496 0.00262793C18.217 0.00262793 18.1849 0.000240326 18.1523 0.000240326V0.00501553C8.37562 0.108287 0.481155 7.96645 0.481155 17.6501H8.23363C8.23363 12.1642 12.7093 7.71335 18.2496 7.66142C23.7899 7.71335 28.2656 12.1642 28.2656 17.6501H36.018C36.018 7.96645 28.1236 0.108287 18.3469 0.00501553Z" fill="currentColor"/>
+<path d="M36.1102 17.6498H36.115C36.115 17.6176 36.1126 17.586 36.1126 17.5537C36.1126 17.5215 36.115 17.4899 36.115 17.4576H36.1102C36.0057 7.79907 28.0514 0 18.2493 0V7.65879C23.8023 7.65879 28.3076 12.0803 28.3601 17.5537C28.3076 23.0271 23.8023 27.4487 18.2493 27.4487V35.1075C28.0514 35.1075 36.0057 27.3084 36.1102 17.6498Z" fill="currentColor"/>
+<path d="M2.12936 0.395002C0.953499 0.395002 -4.76837e-07 1.33698 -4.76837e-07 2.49803C-4.76837e-07 3.66028 0.953499 4.60166 2.12936 4.60166C3.30522 4.60166 4.25812 3.66028 4.25812 2.49803C4.25812 1.33698 3.30522 0.395002 2.12936 0.395002Z" fill="currentColor"/>
+</g>
+<defs>
+<clipPath id="clip0_41_2198">
+<rect width="115" height="50" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+      </a>
+      <nav class="navegacion" id="navegacion" aria-label="Principal">
+        <ul class="navegacion__lista">
+          <li><a class="navegacion__enlace" href="#inicio">Inicio</a></li>
+          <li><a class="navegacion__enlace" href="#nosotros">Nosotros</a></li>
+          <li><a class="navegacion__enlace" href="#servicios">Servicios</a></li>
+          <li><a class="navegacion__enlace" href="#proyectos">Proyectos</a></li>
+          <li><a class="navegacion__enlace" href="#paquetes">Paquetes</a></li>
+          <li><a class="navegacion__enlace" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="encabezado__acciones">
+        <button class="oc-modo" type="button" id="cambiar-modo" aria-label="Cambiar a modo oscuro">
+          <svg class="icono-luna" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z"/></svg>
+          <svg class="icono-sol" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a class="oc-boton oc-boton--primario encabezado__cta" href="#contacto">Agenda tu sesión</a>
+        <button class="menu-movil" type="button" aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="contenedor hero__contenido">
+        <p class="oc-eyebrow" data-revelar>
+          <svg class="oc-eyebrow__estrella" width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+          Agencia de diseño y desarrollo web
+        </p>
+        <h1 class="hero__titulo anim-recorte">
+          <span class="hero__linea">
+            <span class="oc-texto--display-hero">Tu marca</span>
+            <span class="hero__pildora" aria-hidden="true">
+              <svg viewBox="0 0 186 86" width="186" height="86">
+                <ellipse cx="93" cy="43" rx="68" ry="20" fill="none" class="hero__orbita" stroke-width="1.5"/>
+                <g class="hero__satelite"><circle cx="155" cy="34" r="6" class="hero__luna"/></g>
+                <circle cx="93" cy="43" r="19" class="hero__nucleo"/>
+                <path d="M93 32Q93 43 104 43Q93 43 93 54Q93 43 82 43Q93 43 93 32Z" class="hero__chispa"/>
+              </svg>
+            </span>
+          </span>
+          <span class="hero__linea hero__linea--2">
+            <span class="oc-texto--display-hero hero__en">en</span>
+            <span class="oc-texto--display-hero-acento">órbita</span>
+          </span>
+        </h1>
+      </div>
+      <div class="hero__imagen">
+        <img class="anim-recorte anim-recorte--imagen" src="img/hero.webp" alt="Anuncio exterior de Rico Raccoon: un mapache en bicicleta con una bolsa de comida sobre fondo amarillo" width="1440" height="380" />
+      </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section class="nosotros" id="nosotros">
+      <div class="nosotros__brillo" aria-hidden="true"></div>
+      <div class="contenedor">
+        <div class="nosotros__encabezado">
+          <p class="oc-eyebrow" data-revelar>
+            <svg class="oc-eyebrow__estrella" width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+            Quiénes somos
+          </p>
+          <h2 class="titulo-seccion" data-revelar data-retraso=".2">
+            <strong>Diseño con estrategia,</strong><br />marcas con <span class="oc-destacado">propósito</span>
+          </h2>
+        </div>
+
+        <div class="nosotros__cuerpo">
+          <div class="oc-pestanas nosotros__pestanas" role="tablist" aria-label="Cómo pensamos" data-revelar data-retraso=".2">
+            <button class="oc-pestana" role="tab" id="tab-escucha" aria-controls="panel-escucha" aria-selected="false" tabindex="-1">Escucha real</button>
+            <button class="oc-pestana" role="tab" id="tab-estrategia" aria-controls="panel-estrategia" aria-selected="true">Estrategia</button>
+            <button class="oc-pestana" role="tab" id="tab-trabajo" aria-controls="panel-trabajo" aria-selected="false" tabindex="-1">Cómo trabajamos</button>
+          </div>
+
+          <div class="nosotros__imagen" data-revelar data-retraso=".4">
+            <img class="anim-recorte anim-recorte--scroll" src="img/nosotros.webp" alt="Bolsa de papel rosa con la ilustración de Omoideli" width="440" height="400" />
+          </div>
+
+          <div class="nosotros__paneles" data-revelar data-retraso=".6">
+            <div class="nosotros__panel" role="tabpanel" id="panel-escucha" aria-labelledby="tab-escucha" hidden>
+              <p class="nosotros__texto">Antes de diseñar, te escuchamos. Conocemos tu negocio, a tus clientes y lo que te quita el sueño para que cada decisión tenga un porqué.</p>
+              <ul class="oc-lista-check">
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Sesión de exploración para entender tu marca</li>
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Preguntas claras, sin tecnicismos</li>
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Un diagnóstico honesto de dónde estás</li>
+              </ul>
+            </div>
+            <div class="nosotros__panel" role="tabpanel" id="panel-estrategia" aria-labelledby="tab-estrategia">
+              <p class="nosotros__texto">Ayudamos a emprendedoras, emprendedores y pymes a construir una presencia digital clara, bonita y rentable. Unimos estrategia, diseño y tecnología para que tu marca conecte con las personas correctas.</p>
+              <ul class="oc-lista-check">
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Estrategia antes que estética</li>
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Diseño a la medida, nunca genérico</li>
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Acompañamiento cercano en cada etapa</li>
+              </ul>
+            </div>
+            <div class="nosotros__panel" role="tabpanel" id="panel-trabajo" aria-labelledby="tab-trabajo" hidden>
+              <p class="nosotros__texto">Trabajamos en cuatro fases claras: exploramos, diseñamos, construimos y lanzamos. Siempre sabes en qué etapa va tu proyecto y qué sigue.</p>
+              <ul class="oc-lista-check">
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Calendario con fechas desde el inicio</li>
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Rondas de ajustes incluidas</li>
+                <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Entrega con capacitación para tu equipo</li>
+              </ul>
+            </div>
+            <a class="oc-boton oc-boton--secundario nosotros__cta" href="#servicios">Conoce nuestros servicios
+              <svg class="oc-boton__flecha" width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <ul class="nosotros__datos" role="list">
+          <li class="oc-dato" data-revelar data-retraso=".2">
+            <span class="oc-dato__icono"><svg width="36" height="36" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="22" cy="22" r="7"/><ellipse cx="22" cy="22" rx="18" ry="7" transform="rotate(-25 22 22)"/></svg></span>
+            <span class="oc-dato__divisor" aria-hidden="true"></span>
+            <div><p class="oc-dato__valor"><span data-contar="6">6</span></p><p class="oc-dato__etiqueta">Servicios integrales</p></div>
+          </li>
+          <li class="oc-dato" data-revelar data-retraso=".4">
+            <span class="oc-dato__icono"><svg width="36" height="36" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 30L16 18L24 24L38 10"/><path d="M30 10H38V18"/></svg></span>
+            <span class="oc-dato__divisor" aria-hidden="true"></span>
+            <div><p class="oc-dato__valor"><span data-contar="4">4</span></p><p class="oc-dato__etiqueta">Fases de trabajo claras</p></div>
+          </li>
+          <li class="oc-dato" data-revelar data-retraso=".6">
+            <span class="oc-dato__icono"><svg width="36" height="36" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M22 5Q22 22 39 22Q22 22 22 39Q22 22 5 22Q22 22 22 5Z"/></svg></span>
+            <span class="oc-dato__divisor" aria-hidden="true"></span>
+            <div><p class="oc-dato__valor"><span data-contar="100">100</span>%</p><p class="oc-dato__etiqueta">Diseño a la medida</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+      <div class="contenedor">
+        <div class="encabezado-seccion encabezado-seccion--centro">
+          <p class="oc-eyebrow" data-revelar>
+            <svg class="oc-eyebrow__estrella" width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+            Servicios 360
+          </p>
+          <h2 class="titulo-seccion" data-revelar data-retraso=".2"><strong>Todo lo que tu marca necesita</strong><br />en <span class="oc-destacado">un solo lugar</span></h2>
+        </div>
+        <div class="servicios__grid">
+          <article class="oc-servicio" data-revelar data-retraso=".2">
+            <img class="oc-servicio__imagen" src="img/servicio-1.webp" alt="Posavasos con la ilustración de Omoideli" width="260" height="300" loading="lazy" />
+            <div class="oc-servicio__cuerpo">
+              <h3 class="oc-servicio__titulo">Branding e identidad visual</h3>
+              <p class="oc-servicio__texto">Logotipo, paleta, tipografía y manual de marca para que te reconozcan a la primera.</p>
+              <a class="oc-servicio__enlace" href="#contacto">Cotizar este servicio</a>
+            </div>
+          </article>
+          <article class="oc-servicio" data-revelar data-retraso=".4">
+            <img class="oc-servicio__imagen" src="img/servicio-2.webp" alt="Laptop con el sitio de Nescafé" width="260" height="300" loading="lazy" />
+            <div class="oc-servicio__cuerpo">
+              <h3 class="oc-servicio__titulo">Diseño web &amp; UX/UI</h3>
+              <p class="oc-servicio__texto">Sitios rápidos, bonitos y pensados para convertir visitas en clientes.</p>
+              <a class="oc-servicio__enlace" href="#contacto">Cotizar este servicio</a>
+            </div>
+          </article>
+          <article class="oc-servicio" data-revelar data-retraso=".2">
+            <img class="oc-servicio__imagen" src="img/servicio-3.webp" alt="Donas flotando sobre un teléfono con una publicación de redes" width="260" height="300" loading="lazy" />
+            <div class="oc-servicio__cuerpo">
+              <h3 class="oc-servicio__titulo">Manejo de redes sociales</h3>
+              <p class="oc-servicio__texto">Estrategia, calendario y comunidad para que tus redes trabajen por ti.</p>
+              <a class="oc-servicio__enlace" href="#contacto">Cotizar este servicio</a>
+            </div>
+          </article>
+          <article class="oc-servicio" data-revelar data-retraso=".4">
+            <img class="oc-servicio__imagen" src="img/servicio-4.webp" alt="Lata de queso Nochebuena con rebanadas de queso" width="260" height="300" loading="lazy" />
+            <div class="oc-servicio__cuerpo">
+              <h3 class="oc-servicio__titulo">Creación de contenido</h3>
+              <p class="oc-servicio__texto">Fotos, reels y copies con intención: contenido que se guarda y se comparte.</p>
+              <a class="oc-servicio__enlace" href="#contacto">Cotizar este servicio</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banda de servicios: chips en movimiento continuo -->
+    <div class="banda" aria-hidden="true">
+      <div class="banda__pista">
+        <div class="banda__grupo">
+          <span class="banda__chip">Branding</span><span class="banda__chip banda__chip--oscuro">Diseño web</span><span class="banda__chip banda__chip--contorno">UX/UI</span><span class="banda__chip banda__chip--lima">Redes sociales</span><span class="banda__chip">Creación de contenido</span><span class="banda__chip banda__chip--contorno">Apps</span><span class="banda__chip banda__chip--oscuro">Estrategia digital</span>
+        </div>
+        <div class="banda__grupo">
+          <span class="banda__chip">Branding</span><span class="banda__chip banda__chip--oscuro">Diseño web</span><span class="banda__chip banda__chip--contorno">UX/UI</span><span class="banda__chip banda__chip--lima">Redes sociales</span><span class="banda__chip">Creación de contenido</span><span class="banda__chip banda__chip--contorno">Apps</span><span class="banda__chip banda__chip--oscuro">Estrategia digital</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyectos -->
+    <section class="proyectos" id="proyectos">
+      <div class="contenedor">
+        <h2 class="proyectos__titulo" data-revelar>
+          <span class="oc-texto--display-xl">Lo que</span>
+          <span class="proyectos__linea">
+            <svg class="proyectos__estrella" width="44" height="44" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+            <span class="oc-texto--display-acento proyectos__acento">creamos</span>
+          </span>
+        </h2>
+
+        <article class="proyecto">
+          <div class="proyecto__imagen"><img class="anim-recorte anim-recorte--scroll" src="img/proyecto-1.webp" alt="Dos latas de Volt Pink Energy apiladas sobre fondo rosa" width="600" height="520" /></div>
+          <div class="proyecto__texto">
+            <p class="oc-chip oc-chip--contorno" data-revelar>Packaging · Ilustración</p>
+            <h3 class="proyecto__nombre" data-revelar data-retraso=".2">Volt <span class="oc-destacado">energía en lata</span></h3>
+            <p class="proyecto__descripcion" data-revelar data-retraso=".3">Ilustración, diseño de lata y fotografía de producto para una bebida con personalidad propia.</p>
+            <a class="oc-boton oc-boton--secundario" href="#contacto" data-revelar data-retraso=".4">Ver proyecto <svg class="oc-boton__flecha" width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg></a>
+          </div>
+        </article>
+
+        <article class="proyecto proyecto--invertido">
+          <div class="proyecto__imagen"><img class="anim-recorte anim-recorte--scroll" src="img/proyecto-2.webp" alt="Latas de queso manchego Nochebuena edición 2024 vistas desde arriba" width="600" height="520" /></div>
+          <div class="proyecto__texto">
+            <p class="oc-chip oc-chip--contorno" data-revelar>Packaging · Fotografía</p>
+            <h3 class="proyecto__nombre" data-revelar data-retraso=".2">Nochebuena <span class="oc-destacado">edición de temporada</span></h3>
+            <p class="proyecto__descripcion" data-revelar data-retraso=".3">Empaque de temporada, fotografía de producto y piezas para redes que hacen brillar la mesa.</p>
+            <a class="oc-boton oc-boton--secundario" href="#contacto" data-revelar data-retraso=".4">Ver proyecto <svg class="oc-boton__flecha" width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg></a>
+          </div>
+        </article>
+
+        <article class="proyecto">
+          <div class="proyecto__imagen"><img class="anim-recorte anim-recorte--scroll" src="img/proyecto-3.webp" alt="Ilustración de Rico Raccoon, un mapache repartidor en bicicleta" width="600" height="520" /></div>
+          <div class="proyecto__texto">
+            <p class="oc-chip oc-chip--contorno" data-revelar>Personaje · Campaña</p>
+            <h3 class="proyecto__nombre" data-revelar data-retraso=".2">Rico Raccoon <span class="oc-destacado">al rescate</span></h3>
+            <p class="proyecto__descripcion" data-revelar data-retraso=".3">Personaje, ilustración y campaña en exteriores para una marca que se sale de lo común.</p>
+            <a class="oc-boton oc-boton--secundario" href="#contacto" data-revelar data-retraso=".4">Ver proyecto <svg class="oc-boton__flecha" width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="faq" id="faq">
+      <div class="contenedor faq__grid">
+        <div class="faq__imagenes">
+          <img class="faq__imagen faq__imagen--1" src="img/faq-1.webp" alt="Persona con una bolsa de tela de Rico Raccoon" width="290" height="460" loading="lazy" data-revelar />
+          <img class="faq__imagen faq__imagen--2" src="img/faq-2.webp" alt="Mano sosteniendo una lata de Volt contra el cielo" width="290" height="380" loading="lazy" data-revelar data-retraso=".3" />
+        </div>
+        <div class="faq__contenido">
+          <p class="oc-eyebrow" data-revelar>
+            <svg class="oc-eyebrow__estrella" width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+            Preguntas frecuentes
+          </p>
+          <h2 class="titulo-seccion" data-revelar data-retraso=".2"><strong>Resolvemos</strong><br />todas tus <span class="oc-destacado">dudas</span></h2>
+          <div class="faq__acordeon" data-revelar data-retraso=".3">
+            <div class="oc-faq">
+              <h3 class="oc-faq__titulo"><button class="oc-faq__boton" type="button" aria-expanded="false" aria-controls="faq-1">¿Cuánto tarda un proyecto?<span class="oc-faq__signo" aria-hidden="true">+</span></button></h3>
+              <div class="faq__panel" id="faq-1"><div><p class="oc-faq__respuesta">Depende del paquete: Despegue toma de 2 a 3 semanas, Órbita Web de 4 a 6 y Galaxia 360 de 6 a 8. En tu sesión de exploración te damos un calendario con fechas claras.</p></div></div>
+            </div>
+            <div class="oc-faq">
+              <h3 class="oc-faq__titulo"><button class="oc-faq__boton" type="button" aria-expanded="true" aria-controls="faq-2">¿Qué necesito para empezar?<span class="oc-faq__signo" aria-hidden="true">+</span></button></h3>
+              <div class="faq__panel" id="faq-2"><div><p class="oc-faq__respuesta">Solo ganas y una sesión de exploración de 45 minutos. Ahí conocemos tu negocio y tus objetivos y te recomendamos el paquete ideal. Si ya tienes logo, textos o fotos, ¡súper!, los aprovechamos.</p></div></div>
+            </div>
+            <div class="oc-faq">
+              <h3 class="oc-faq__titulo"><button class="oc-faq__boton" type="button" aria-expanded="false" aria-controls="faq-3">¿Puedo pagar en parcialidades?<span class="oc-faq__signo" aria-hidden="true">+</span></button></h3>
+              <div class="faq__panel" id="faq-3"><div><p class="oc-faq__respuesta">Sí. En tu sesión de exploración definimos juntos un esquema de pagos por etapas que se acomode a tu proyecto.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner con ilustración (paralaje suave) -->
+    <div class="banner" aria-hidden="true">
+      <img class="banner__imagen" src="img/banner.webp" alt="" width="1440" height="600" loading="lazy" />
+    </div>
+
+    <!-- Paquetes -->
+    <section class="paquetes" id="paquetes">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <p class="oc-eyebrow" data-revelar>
+            <svg class="oc-eyebrow__estrella" width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+            Paquetes
+          </p>
+          <h2 class="titulo-seccion" data-revelar data-retraso=".2"><strong>Elige el impulso</strong><br />que tu marca <span class="oc-destacado">necesita</span></h2>
+        </div>
+
+        <div class="paquetes__grid">
+          <article class="oc-paquete" data-revelar data-retraso=".2">
+            <div class="oc-paquete__cabecera"><span class="oc-paquete__icono"><svg width="32" height="32" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 6C30 12 31 22 27 30H17C13 22 14 12 22 6Z"/><circle cx="22" cy="18" r="3"/><path d="M17 30L12 36M27 30L32 36M22 32V38"/></svg></span></div>
+            <h3 class="oc-paquete__nombre">Despegue</h3>
+            <p class="oc-paquete__descripcion">Tu marca y tu primera página, listas para salir al mundo.</p>
+            <p class="oc-paquete__desde">Desde</p>
+            <p class="oc-paquete__precio">$16,500 <span class="oc-paquete__moneda">MXN</span></p>
+            <p class="oc-paquete__tiempo"><svg width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="22" cy="22" r="16"/><path d="M22 13V22L28 26"/></svg>2 a 3 semanas</p>
+            <hr class="oc-paquete__divisor" />
+            <ul class="oc-lista-check oc-paquete__incluye">
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Identidad visual: logo, paleta y tipografías</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Landing page responsive de una sección</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Formulario de contacto y botón de WhatsApp</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Entrega ágil en plantilla optimizada</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>2 rondas de ajustes</li>
+            </ul>
+            <a class="oc-boton oc-boton--secundario oc-boton--ancho" href="#contacto">Quiero este paquete</a>
+          </article>
+
+          <article class="oc-paquete oc-paquete--destacado" data-revelar data-retraso=".4">
+            <div class="oc-paquete__cabecera"><span class="oc-paquete__icono"><svg width="32" height="32" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="32" height="24" rx="4"/><path d="M6 15H38M16 38H28M22 33V38"/></svg></span><span class="oc-chip oc-chip--lima">Más elegido</span></div>
+            <h3 class="oc-paquete__nombre">Órbita Web</h3>
+            <p class="oc-paquete__descripcion">Tu sitio a la medida, listo para vender y recibir clientes.</p>
+            <p class="oc-paquete__desde">Desde</p>
+            <p class="oc-paquete__precio">$35,000 <span class="oc-paquete__moneda">MXN</span></p>
+            <p class="oc-paquete__tiempo"><svg width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="22" cy="22" r="16"/><path d="M22 13V22L28 26"/></svg>4 a 6 semanas</p>
+            <hr class="oc-paquete__divisor" />
+            <ul class="oc-lista-check oc-paquete__incluye">
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Diseño UX/UI a la medida</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Sitio de hasta 7 secciones, 100% responsive</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>SEO básico y optimización de velocidad</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Pagos en línea o CRM integrados</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>2 meses de cuidado web incluidos</li>
+            </ul>
+            <a class="oc-boton oc-boton--primario oc-boton--ancho" href="#contacto">Quiero este paquete</a>
+          </article>
+
+          <article class="oc-paquete" data-revelar data-retraso=".6">
+            <div class="oc-paquete__cabecera"><span class="oc-paquete__icono"><svg width="32" height="32" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="22" r="6"/><ellipse cx="22" cy="22" rx="17" ry="7" transform="rotate(-25 22 22)"/><circle cx="36" cy="11" r="2"/></svg></span></div>
+            <h3 class="oc-paquete__nombre">Galaxia 360</h3>
+            <p class="oc-paquete__descripcion">Marca completa + sitio a la medida: todo tu universo en un solo equipo.</p>
+            <p class="oc-paquete__desde">Desde</p>
+            <p class="oc-paquete__precio">$49,900 <span class="oc-paquete__moneda">MXN</span></p>
+            <p class="oc-paquete__tiempo"><svg width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="22" cy="22" r="16"/><path d="M22 13V22L28 26"/></svg>6 a 8 semanas</p>
+            <hr class="oc-paquete__divisor" />
+            <ul class="oc-lista-check oc-paquete__incluye">
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Branding completo: estrategia, logo y manual</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Sitio a la medida de hasta 7 secciones</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>3 aplicaciones de marca (redes o papelería)</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Capacitación para manejar tu sitio</li>
+              <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>3 meses de cuidado web incluidos</li>
+            </ul>
+            <a class="oc-boton oc-boton--secundario oc-boton--ancho" href="#contacto">Quiero este paquete</a>
+          </article>
+        </div>
+
+        <div class="oc-franja" data-revelar>
+          <div class="oc-franja__texto">
+            <p class="oc-franja__titulo">¿No sabes cuál elegir? Empieza con una sesión de exploración</p>
+            <p class="oc-franja__detalle">45 min en línea · $690 MXN con IVA incluido · se abona a tu paquete. Ahí también platicamos de planes mensuales de redes y marketing, tiendas en línea, mantenimiento web y diseño UI/UX a la medida. Precios de paquetes en MXN + IVA.</p>
+          </div>
+          <a class="oc-boton oc-boton--secundario" href="#contacto">Agendar sesión <svg class="oc-boton__flecha" width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel de servicios: texto en movimiento -->
+    <div class="carrusel" aria-hidden="true">
+      <div class="carrusel__pista">
+        <div class="carrusel__grupo">
+          <span class="carrusel__item carrusel__item--contorno">Diseño web</span><span class="carrusel__separador">✦</span><span class="carrusel__item">UX/UI</span><span class="carrusel__separador">✦</span><span class="carrusel__item carrusel__item--contorno">Redes sociales</span><span class="carrusel__separador">✦</span><span class="carrusel__item">Contenido</span><span class="carrusel__separador">✦</span><span class="carrusel__item carrusel__item--contorno">Apps</span><span class="carrusel__separador">✦</span><span class="carrusel__item">Estrategia</span><span class="carrusel__separador">✦</span><span class="carrusel__item carrusel__item--contorno">Branding</span><span class="carrusel__separador">✦</span>
+        </div>
+        <div class="carrusel__grupo">
+          <span class="carrusel__item carrusel__item--contorno">Diseño web</span><span class="carrusel__separador">✦</span><span class="carrusel__item">UX/UI</span><span class="carrusel__separador">✦</span><span class="carrusel__item carrusel__item--contorno">Redes sociales</span><span class="carrusel__separador">✦</span><span class="carrusel__item">Contenido</span><span class="carrusel__separador">✦</span><span class="carrusel__item carrusel__item--contorno">Apps</span><span class="carrusel__separador">✦</span><span class="carrusel__item">Estrategia</span><span class="carrusel__separador">✦</span><span class="carrusel__item carrusel__item--contorno">Branding</span><span class="carrusel__separador">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contacto / agenda -->
+    <section class="contacto" id="contacto">
+      <div class="contacto__orbita" aria-hidden="true"></div>
+      <div class="contenedor contacto__grid">
+        <div class="contacto__texto">
+          <p class="oc-eyebrow oc-eyebrow--linea" data-revelar><span class="oc-eyebrow__linea" aria-hidden="true"></span>Empecemos por una conversación</p>
+          <h2 class="oc-texto--titulo-h1 contacto__titulo" data-revelar data-retraso=".2">¿Hablamos de<br /><span class="oc-destacado">tu proyecto?</span></h2>
+          <p class="contacto__intro" data-revelar data-retraso=".3">Exploramos tu idea, tus objetivos y los retos que enfrentas para definir el siguiente paso de tu marca.</p>
+          <ul class="oc-lista-check" data-revelar data-retraso=".4">
+            <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Diagnóstico de tu marca y presencia digital</li>
+            <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Recomendación del paquete ideal para ti</li>
+            <li class="oc-item-check"><span class="oc-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2 5 8.5 9.5 3.5"/></svg></span>Lista de siguientes pasos y tareas recomendadas</li>
+          </ul>
+        </div>
+
+        <div class="agenda" data-revelar data-retraso=".3">
+          <div class="agenda__cabecera">
+            <p class="agenda__precio">$690 <span>MXN</span></p>
+            <span class="oc-chip oc-chip--lima">Se abona a tu paquete</span>
+          </div>
+          <p class="oc-texto--etiqueta-s agenda__nombre">Sesión de exploración</p>
+          <p class="agenda__detalle">45 min · Online · IVA incluido</p>
+          <hr class="agenda__divisor" />
+          <div class="agenda__mes">
+            <p class="agenda__mes-nombre" id="mes-agenda">Octubre 2026</p>
+            <div class="agenda__flechas">
+              <button class="oc-modo agenda__flecha" type="button" aria-label="Mes anterior" disabled><svg width="16" height="16" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M36 22H8M18 12L8 22L18 32"/></svg></button>
+              <button class="oc-modo agenda__flecha" type="button" aria-label="Mes siguiente" disabled><svg width="16" height="16" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg></button>
+            </div>
+          </div>
+          <div class="agenda__calendario" role="grid" aria-labelledby="mes-agenda" id="calendario"></div>
+          <p class="oc-texto--etiqueta-s agenda__horarios-titulo" id="titulo-horarios">Horarios · miércoles 14 de octubre</p>
+          <div class="agenda__horarios" role="group" aria-labelledby="titulo-horarios">
+            <button class="oc-horario" type="button" aria-pressed="false">10:00</button>
+            <button class="oc-horario" type="button" aria-pressed="true">12:00</button>
+            <button class="oc-horario" type="button" aria-pressed="false">16:00</button>
+            <button class="oc-horario" type="button" aria-pressed="false">18:00</button>
+          </div>
+          <a class="oc-boton oc-boton--primario oc-boton--ancho agenda__cta" id="cta-agenda" href="https://calendar.app.google/pSB2XsKn1eRMgjL39" target="_blank" rel="noopener">
+            <span id="cta-agenda-texto">Agenda tu sesión · mié 14 oct, 12:00</span>
+            <svg class="oc-boton__flecha" width="18" height="18" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22H36M26 12L36 22L26 32"/></svg>
+          </a>
+          <p class="agenda__nota">Recibirás una lista de siguientes pasos y tareas recomendadas. Horario de Ciudad de México.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie__grid">
+        <div class="pie__boletin">
+          <h2 class="pie__titulo">Ideas para tu marca, directo a tu correo</h2>
+          <p class="pie__texto">Tips de diseño, branding y redes. Un correo al mes, cero spam.</p>
+          <form class="pie__formulario" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('.pie__gracias').hidden=false;">
+            <label class="sr-only" for="correo-boletin">Tu correo</label>
+            <input class="pie__campo" id="correo-boletin" type="email" placeholder="Tu correo..." required autocomplete="email" />
+            <button class="pie__enviar" type="submit" aria-label="Suscribirme"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg></button>
+            <p class="pie__gracias" role="status" hidden>¡Listo! Te escribimos pronto.</p>
+          </form>
+        </div>
+        <nav class="pie__columna" aria-label="Explora">
+          <h2 class="pie__subtitulo">Explora</h2>
+          <ul>
+            <li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#paquetes">Paquetes</a></li><li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <nav class="pie__columna" aria-label="Servicios">
+          <h2 class="pie__subtitulo">Servicios</h2>
+          <ul>
+            <li><a href="#servicios">Branding e identidad</a></li><li><a href="#servicios">Diseño web &amp; UX/UI</a></li><li><a href="#servicios">Diseño digital</a></li><li><a href="#servicios">Redes sociales</a></li><li><a href="#servicios">Creación de contenido</a></li><li><a href="#servicios">Desarrollo de apps</a></li>
+          </ul>
+        </nav>
+        <div class="pie__columna">
+          <h2 class="pie__subtitulo">Instagram</h2>
+          <div class="pie__instagram">
+            <a href="https://instagram.com/hola.orbitacreativa" target="_blank" rel="noopener"><img src="img/ig-1.webp" alt="Volt: lata con salpicadura" width="130" height="111" loading="lazy" /></a>
+            <a href="https://instagram.com/hola.orbitacreativa" target="_blank" rel="noopener"><img src="img/ig-2.webp" alt="Volt: latas apiladas" width="130" height="111" loading="lazy" /></a>
+            <a href="https://instagram.com/hola.orbitacreativa" target="_blank" rel="noopener"><img src="img/ig-3.webp" alt="Nochebuena: quesos de temporada" width="130" height="111" loading="lazy" /></a>
+            <a href="https://instagram.com/hola.orbitacreativa" target="_blank" rel="noopener"><img src="img/ig-4.webp" alt="Nescafé: app en un teléfono" width="130" height="111" loading="lazy" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="pie__base">
+        <a class="pie__marca" href="#inicio">
+          <svg width="28" height="28" viewBox="0 0 37 36" aria-hidden="true"><path fill="currentColor" d="M18.35 0C8.38.1.48 7.97.48 17.65h7.75c0-5.49 4.48-9.94 10.02-9.99 5.54.05 10.02 4.5 10.02 9.99s-4.51 9.8-10.07 9.8v7.66c9.8 0 17.76-7.8 17.86-17.46C36.02 7.97 28.12.1 18.35 0Z"/><circle fill="currentColor" cx="2.13" cy="2.5" r="2.13"/><path fill="currentColor" d="M18.42 22.82l-.17.66-.17-.66c-.6-2.3-1.93-4.1-3.6-4.94l-.49-.23.49-.24c1.67-.83 3-2.64 3.6-4.93l.17-.66.17.66c.61 2.29 1.93 4.1 3.61 4.93l.48.24"/></svg>
+          Órbita Creativa
+        </a>
+        <p class="pie__copy">© 2026 Órbita Creativa. Todos los derechos reservados.</p>
+        <div class="pie__redes">
+          <a href="https://instagram.com/hola.orbitacreativa" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://calendar.app.google/pSB2XsKn1eRMgjL39" target="_blank" rel="noopener" aria-label="Agenda"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></a>
+          <a href="mailto:hola.orbitacreativa@gmail.com" aria-label="Correo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Volver arriba -->
+  <button class="volver-arriba" type="button" aria-label="Volver arriba">
+    <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 36V8M12 18L22 8L32 18"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
