@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Fundamentos/Jerarquía de color" />
+
+# Jerarquía de color
+
+El azul es la señal de "aquí puedes hacer algo". Si todo es azul, nada destaca. Por eso cada color tiene un trabajo:
+
+| Color | Token | Úsalo para |
+| --- | --- | --- |
+| Azul | `--oc-acento-primario`, `--oc-texto-acento` | Solo lo interactivo: botón primario, enlaces, día y horario seleccionados. **Un solo botón primario por sección.** |
+| Lila | `--oc-texto-destacado` | Énfasis editorial: la palabra destacada de cada título y las estrellas decorativas en modo claro. |
+| Lima | `--oc-acento-lima` | Etiquetas que deben brillar ("Más elegido"). Máximo una por vista. |
+| Lavanda | `--oc-acento-suave` | Fondos de apoyo: checks, íconos de contadores, pestaña activa, días disponibles. |
+| Neutros | `--oc-texto-*`, `--oc-borde-*`, `--oc-fondo-*` | Texto, bordes y superficies. Los botones secundarios van con contorno, nunca con relleno azul. |
+
+## Reglas rápidas
+
+- Una pestaña activa **no** es un botón: va en lavanda con borde azul.
+- En una fila de tarjetas solo la recomendada lleva botón primario; las demás, secundario.
+- Íconos decorativos van sobre lavanda, no sobre círculos azules.
+- Todo elemento interactivo tiene foco visible (`--oc-foco`).

@@ -1,0 +1,21 @@
+.oc-dia {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1.5px solid transparent;
+  border-radius: var(--oc-radio-pill);
+  background: transparent;
+  color: var(--oc-texto-principal);
+  font: 600 16px/1 var(--oc-fuente);
+  cursor: pointer;
+  transition: background-color var(--oc-transicion);
+}
+.oc-dia:focus-visible { outline: none; box-shadow: var(--oc-foco); }
+.oc-dia--disponible { background: var(--oc-acento-suave); }
+.oc-dia--disponible:hover { border-color: var(--oc-borde-acento); }
+.oc-dia--seleccionado { background: var(--oc-acento-primario); color: var(--oc-texto-sobre-acento); }
+.oc-dia--hoy { border-color: var(--oc-borde-acento); color: var(--oc-texto-acento); }
+.oc-dia:disabled { color: var(--oc-texto-secundario); opacity: 0.45; cursor: default; }

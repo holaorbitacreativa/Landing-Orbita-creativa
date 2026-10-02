@@ -1,0 +1,15 @@
+.oc-horario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--oc-espacio-3) var(--oc-espacio-5);
+  border: 1px solid var(--oc-borde-default);
+  border-radius: var(--oc-radio-pill);
+  background: var(--oc-fondo-superficie);
+  color: var(--oc-texto-principal);
+  font: 600 16px/1 var(--oc-fuente);
+  cursor: pointer;
+}
+.oc-horario:hover { border-color: var(--oc-borde-acento); }
+.oc-horario:focus-visible { outline: none; box-shadow: var(--oc-foco); }
+.oc-horario[aria-pressed='true'] { background: var(--oc-acento-primario); border-color: var(--oc-acento-primario); color: var(--oc-texto-sobre-acento); }

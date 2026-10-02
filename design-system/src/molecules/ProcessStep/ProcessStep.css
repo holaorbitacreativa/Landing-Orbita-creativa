@@ -1,0 +1,11 @@
+.oc-paso {
+  display: grid;
+  gap: var(--oc-espacio-3);
+  padding: var(--oc-espacio-6);
+  border: 1px solid var(--oc-borde-default);
+  border-radius: var(--oc-radio-md);
+  background: var(--oc-fondo-superficie);
+}
+.oc-paso__fase { margin: 0; color: var(--oc-texto-destacado); font: 700 12px/1.3 var(--oc-fuente); letter-spacing: 0.1em; text-transform: uppercase; }
+.oc-paso__titulo { margin: 0; color: var(--oc-texto-principal); font: 700 20px/1.3 var(--oc-fuente); }
+.oc-paso__texto { margin: 0; color: var(--oc-texto-secundario); font: 400 15px/1.55 var(--oc-fuente); }

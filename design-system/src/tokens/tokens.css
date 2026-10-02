@@ -1,0 +1,102 @@
+/* Generado por scripts/build-tokens.mjs. No editar a mano: cambia tokens.json. */
+
+:root {
+  --oc-azul-300: #7fa0ff;
+  --oc-azul-400: #5b84ff;
+  --oc-azul-500: #3d6bf5;
+  --oc-azul-600: #3461f0;
+  --oc-azul-700: #2447c9;
+  --oc-lila-200: #c3b9ff;
+  --oc-lila-400: #a99bff;
+  --oc-lila-600: #7c68f0;
+  --oc-lila-700: #6a55e0;
+  --oc-lavanda-50: #f7f7fe;
+  --oc-lavanda-100: #eeedfb;
+  --oc-lavanda-200: #e7e6fb;
+  --oc-lavanda-300: #f2f1fc;
+  --oc-lima-400: #c8f547;
+  --oc-noche-950: #080911;
+  --oc-noche-900: #0b0c17;
+  --oc-noche-850: #10111f;
+  --oc-noche-800: #15172a;
+  --oc-noche-700: #1b1d34;
+  --oc-noche-600: #14152b;
+  --oc-noche-500: #1b1c33;
+  --oc-niebla-300: #b7b9d6;
+  --oc-niebla-700: #4a4c6b;
+  --oc-blanco-100: #ffffff;
+  --oc-blanco-95: #f5f5ff;
+  --oc-linea-claro: #14152b1f;
+  --oc-linea-oscuro: #b7b9d629;
+  --oc-rojo-500: #e4466b;
+  --oc-espacio-1: 4px;
+  --oc-espacio-2: 8px;
+  --oc-espacio-3: 12px;
+  --oc-espacio-4: 16px;
+  --oc-espacio-5: 20px;
+  --oc-espacio-6: 24px;
+  --oc-espacio-8: 32px;
+  --oc-espacio-10: 40px;
+  --oc-espacio-12: 48px;
+  --oc-espacio-16: 64px;
+  --oc-espacio-20: 80px;
+  --oc-espacio-30: 120px;
+  --oc-radio-sm: 8px;
+  --oc-radio-md: 16px;
+  --oc-radio-lg: 24px;
+  --oc-radio-xl: 32px;
+  --oc-radio-pill: 999px;
+}
+
+:root,
+[data-theme="claro"] {
+  color-scheme: light;
+  --oc-fondo-pagina: var(--oc-lavanda-50);
+  --oc-fondo-seccion: var(--oc-lavanda-100);
+  --oc-fondo-superficie: var(--oc-blanco-100);
+  --oc-fondo-superficie-alt: var(--oc-lavanda-300);
+  --oc-fondo-inverso: var(--oc-noche-600);
+  --oc-texto-principal: var(--oc-noche-600);
+  --oc-texto-secundario: var(--oc-niebla-700);
+  --oc-texto-sobre-acento: var(--oc-blanco-100);
+  --oc-texto-acento: var(--oc-azul-600);
+  --oc-texto-destacado: var(--oc-lila-700);
+  --oc-texto-sobre-lima: var(--oc-noche-500);
+  --oc-acento-primario: var(--oc-azul-600);
+  --oc-acento-primario-hover: var(--oc-azul-700);
+  --oc-acento-lima: var(--oc-lima-400);
+  --oc-acento-chispa: var(--oc-lila-600);
+  --oc-acento-suave: var(--oc-lavanda-200);
+  --oc-borde-default: var(--oc-linea-claro);
+  --oc-borde-acento: var(--oc-azul-600);
+  --oc-estado-error: var(--oc-rojo-500);
+  --oc-degradado-inicio: var(--oc-azul-600);
+  --oc-degradado-fin: var(--oc-lila-600);
+  --oc-acento-estrella: var(--oc-lila-600);
+}
+
+[data-theme="oscuro"] {
+  color-scheme: dark;
+  --oc-fondo-pagina: var(--oc-noche-900);
+  --oc-fondo-seccion: var(--oc-noche-850);
+  --oc-fondo-superficie: var(--oc-noche-800);
+  --oc-fondo-superficie-alt: var(--oc-noche-700);
+  --oc-fondo-inverso: var(--oc-noche-950);
+  --oc-texto-principal: var(--oc-blanco-95);
+  --oc-texto-secundario: var(--oc-niebla-300);
+  --oc-texto-sobre-acento: var(--oc-blanco-100);
+  --oc-texto-acento: var(--oc-azul-300);
+  --oc-texto-destacado: var(--oc-lila-200);
+  --oc-texto-sobre-lima: var(--oc-noche-500);
+  --oc-acento-primario: var(--oc-azul-500);
+  --oc-acento-primario-hover: var(--oc-azul-600);
+  --oc-acento-lima: var(--oc-lima-400);
+  --oc-acento-chispa: var(--oc-lima-400);
+  --oc-acento-suave: var(--oc-noche-700);
+  --oc-borde-default: var(--oc-linea-oscuro);
+  --oc-borde-acento: var(--oc-azul-400);
+  --oc-estado-error: var(--oc-rojo-500);
+  --oc-degradado-inicio: var(--oc-azul-300);
+  --oc-degradado-fin: var(--oc-lila-200);
+  --oc-acento-estrella: var(--oc-lima-400);
+}

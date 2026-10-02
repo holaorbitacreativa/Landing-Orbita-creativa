@@ -1,0 +1,11 @@
+.oc-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: var(--oc-radio-pill);
+  background: var(--oc-acento-suave);
+  color: var(--oc-texto-acento);
+}

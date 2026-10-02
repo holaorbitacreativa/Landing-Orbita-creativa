@@ -1,0 +1,34 @@
+/* Estilos de texto de Figma. Una clase por estilo: .oc-texto--<grupo>-<nombre>. */
+.oc-texto--display-hero { font: 800 150px/1 var(--oc-fuente); letter-spacing: -0.03em; }
+.oc-texto--display-hero-acento { font: italic 300 150px/1 var(--oc-fuente); letter-spacing: -0.03em; }
+.oc-texto--display-xl { font: 800 104px/1 var(--oc-fuente); letter-spacing: -0.03em; }
+.oc-texto--display-l { font: 800 80px/1 var(--oc-fuente); letter-spacing: -0.03em; }
+.oc-texto--display-acento { font: italic 300 80px/1 var(--oc-fuente); letter-spacing: -0.02em; }
+.oc-texto--titulo-h1 { font: 800 56px/1.1 var(--oc-fuente); letter-spacing: -0.02em; }
+.oc-texto--titulo-h2 { font: 700 44px/1.15 var(--oc-fuente); letter-spacing: -0.02em; }
+.oc-texto--titulo-h3 { font: 700 28px/1.25 var(--oc-fuente); letter-spacing: -0.01em; }
+.oc-texto--titulo-h4 { font: 700 20px/1.3 var(--oc-fuente); letter-spacing: -0.005em; }
+.oc-texto--cuerpo-l { font: 400 20px/1.6 var(--oc-fuente); }
+.oc-texto--cuerpo-m { font: 400 17px/1.6 var(--oc-fuente); }
+.oc-texto--cuerpo-s { font: 400 15px/1.55 var(--oc-fuente); }
+.oc-texto--navegacion-m { font: 500 17px/1.4 var(--oc-fuente); }
+.oc-texto--etiqueta-m { font: 700 14px/1.3 var(--oc-fuente); letter-spacing: 0.12em; text-transform: uppercase; }
+.oc-texto--etiqueta-s { font: 700 12px/1.3 var(--oc-fuente); letter-spacing: 0.1em; text-transform: uppercase; }
+.oc-texto--boton-m { font: 700 16px/1 var(--oc-fuente); }
+.oc-texto--precio-xl { font: 800 64px/1 var(--oc-fuente); letter-spacing: -0.02em; }
+.oc-texto--dato-calendario { font: 600 16px/1 var(--oc-fuente); }
+
+/* Palabra destacada de un título: lila (énfasis editorial, nunca azul). */
+.oc-destacado { color: var(--oc-texto-destacado); font-style: italic; font-weight: 300; }
+
+/* Escala fluida en pantallas pequeñas. */
+@media (max-width: 768px) {
+  .oc-texto--display-hero,
+  .oc-texto--display-hero-acento { font-size: clamp(56px, 16vw, 150px); }
+  .oc-texto--display-xl { font-size: clamp(48px, 13vw, 104px); }
+  .oc-texto--display-l,
+  .oc-texto--display-acento { font-size: clamp(44px, 11vw, 80px); }
+  .oc-texto--titulo-h1 { font-size: 40px; }
+  .oc-texto--titulo-h2 { font-size: 32px; }
+  .oc-texto--precio-xl { font-size: 48px; }
+}
