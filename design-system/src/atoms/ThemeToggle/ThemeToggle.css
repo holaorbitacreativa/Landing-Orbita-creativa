@@ -1,0 +1,14 @@
+.oc-modo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--oc-borde-default);
+  border-radius: var(--oc-radio-pill);
+  background: var(--oc-fondo-superficie);
+  color: var(--oc-texto-principal);
+  cursor: pointer;
+}
+.oc-modo:focus-visible { outline: none; box-shadow: var(--oc-foco); }

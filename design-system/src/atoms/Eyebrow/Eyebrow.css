@@ -1,0 +1,13 @@
+.oc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font: 700 14px/1.3 var(--oc-fuente);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oc-texto-secundario);
+}
+.oc-eyebrow__estrella { color: var(--oc-acento-estrella); flex: none; }
+.oc-eyebrow--linea { gap: var(--oc-espacio-4); color: var(--oc-texto-principal); }
+.oc-eyebrow__linea { width: 48px; height: 2px; background: var(--oc-texto-destacado); flex: none; }

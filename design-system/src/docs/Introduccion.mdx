@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introducción" />
+
+# Design system de Órbita Creativa
+
+Este Storybook es la versión en código del design system de Figma
+([archivo DS](https://www.figma.com/design/Nxub8bD0kNmQD2Z683Rnpu)). Cada componente aquí corresponde a uno de la página
+**🧩 Componentes** y usa las mismas variables de color, espaciado y tipografía.
+
+Usa el selector de tema de la barra superior para ver cada componente en **modo claro** y **modo oscuro**.
+
+## Cómo está organizado (atomic design)
+
+- **Fundamentos**: colores, tipografía, espaciado y la jerarquía de color.
+- **Átomos**: piezas mínimas (botón, chip, check, pestaña, día, horario).
+- **Moléculas**: combinaciones simples con una función (beneficio con check, contador, pregunta frecuente).
+- **Organismos**: bloques completos de la página (tarjeta de paquete, tarjeta de servicio, franja de sesión).
+
+## Tokens
+
+Los tokens viven en `src/tokens/tokens.json`, exportados de las variables de Figma. Corre `npm run tokens` para
+regenerar `tokens.css`. Todas las variables CSS empiezan con `--oc-` y siguen el nombre de Figma:
+`fondo/superficie` → `--oc-fondo-superficie`.
+
+El modo se controla con `data-theme="claro"` u `data-theme="oscuro"` en cualquier elemento contenedor.

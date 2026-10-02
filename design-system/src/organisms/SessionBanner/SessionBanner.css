@@ -1,0 +1,15 @@
+.oc-franja {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-espacio-10);
+  padding: var(--oc-espacio-8) var(--oc-espacio-10);
+  border: 1px solid var(--oc-borde-default);
+  border-radius: 28px;
+  background: var(--oc-fondo-superficie);
+}
+.oc-franja__texto { flex: 1; }
+.oc-franja__titulo { margin: 0 0 var(--oc-espacio-2); color: var(--oc-texto-principal); font: 700 20px/1.3 var(--oc-fuente); }
+.oc-franja__detalle { margin: 0; color: var(--oc-texto-secundario); font: 400 15px/1.55 var(--oc-fuente); }
+@media (max-width: 768px) {
+  .oc-franja { flex-direction: column; align-items: stretch; gap: var(--oc-espacio-6); padding: var(--oc-espacio-6); }
+}

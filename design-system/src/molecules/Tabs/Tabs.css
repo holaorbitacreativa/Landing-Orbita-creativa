@@ -1,0 +1,2 @@
+.oc-pestanas { display: flex; flex-direction: column; align-items: flex-start; gap: var(--oc-espacio-4); }
+.oc-pestanas--horizontal { flex-direction: row; flex-wrap: wrap; }

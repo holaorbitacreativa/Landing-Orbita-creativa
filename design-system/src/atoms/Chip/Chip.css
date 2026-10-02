@@ -1,0 +1,15 @@
+.oc-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--oc-espacio-1) var(--oc-espacio-3);
+  border: 1px solid transparent;
+  border-radius: var(--oc-radio-pill);
+  font: 700 12px/1.3 var(--oc-fuente);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* Lima: solo para lo que debe brillar. Máximo uno por vista. */
+.oc-chip--lima { background: var(--oc-acento-lima); color: var(--oc-texto-sobre-lima); }
+.oc-chip--suave { background: var(--oc-acento-suave); color: var(--oc-texto-principal); }
+.oc-chip--contorno { border-color: var(--oc-borde-default); color: var(--oc-texto-principal); }
