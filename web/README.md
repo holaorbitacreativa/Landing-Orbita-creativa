@@ -8,6 +8,6 @@ contadores, encabezado fijo, volver arriba y bandas en movimiento). Respeta `pre
 - `css/design-system.css`: **generado**. Corre `node scripts/build-css.mjs` cuando cambie `design-system/src`.
 - `css/sitio.css`: maquetación de secciones y animaciones.
 - `js/main.js`: comportamiento, sin dependencias.
-- `img/`: imágenes exportadas de Figma en WebP.
+- `img/`: fotos exportadas de Figma en WebP; `img/galaxia` y `img/banda` son las ilustraciones vectoriales separadas en capas para el paralaje.
 
 Para verla en local: `python3 -m http.server` dentro de `web/` y abre `http://localhost:8000`.

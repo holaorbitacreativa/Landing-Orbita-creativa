@@ -40,23 +40,25 @@
   });
   pintarBotonModo();
 
-  /* ───────── Cursor de estrella con estela de estrella fugaz (solo mouse) ───────── */
+  /* ───────── Cursor de estrella con propulsor (solo mouse) ───────── */
+  // Al moverse, la estrella suelta partículas pequeñas hacia atrás, como el escape de un propulsor.
   if (!sinMovimiento && window.matchMedia('(pointer: fine)').matches) {
     var cursor = document.querySelector('.cursor');
     var lienzo = document.querySelector('.estela');
     var ctx = lienzo.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var puntos = [];   // la cola: últimas posiciones del mouse
-    var chispas = [];  // destellos que se desprenden de la cola
+    var particulas = [];
     var animando = false;
-    var colorEstela = '';
+    var rgb = [124, 104, 240];
     function medirLienzo() {
       lienzo.width = innerWidth * dpr;
       lienzo.height = innerHeight * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
-    function leerColor() { colorEstela = getComputedStyle(cursor).color; }
-    function conAlfa(alfa) { return colorEstela.replace('rgb(', 'rgba(').replace(')', ', ' + alfa + ')'); }
+    function leerColor() {
+      var m = getComputedStyle(cursor).color.match(/\d+(\.\d+)?/g);
+      if (m) rgb = m.slice(0, 3).map(Number);
+    }
     medirLienzo();
     leerColor();
     window.addEventListener('resize', medirLienzo);
@@ -64,37 +66,28 @@
 
     function dibujar() {
       ctx.clearRect(0, 0, innerWidth, innerHeight);
-      var ahora = performance.now();
-      puntos = puntos.filter(function (p) { return ahora - p.t < 420; });
-      // Cola: trazo que se adelgaza y se desvanece hacia atrás.
-      for (var i = 1; i < puntos.length; i++) {
-        var vida = 1 - (ahora - puntos[i].t) / 420;
-        ctx.strokeStyle = conAlfa(vida * 0.7);
-        ctx.shadowColor = conAlfa(vida);
-        ctx.shadowBlur = 10 * vida;
-        ctx.lineWidth = 1 + vida * 5;
-        ctx.lineCap = 'round';
+      // En oscuro las partículas suman luz; en claro se pintan normal para que se vean sobre el fondo.
+      var oscuro = raiz.dataset.theme === 'oscuro';
+      ctx.globalCompositeOperation = oscuro ? 'lighter' : 'source-over';
+      particulas = particulas.filter(function (p) { return p.vida > 0; });
+      particulas.forEach(function (p) {
+        p.x += p.vx; p.y += p.vy;
+        p.vx *= 0.92; p.vy *= 0.92;
+        p.vida -= 0.045;
+        var r = p.r * (0.4 + p.vida * 0.6);
+        // Núcleo claro cerca de la estrella que se vuelve del color de la marca al alejarse.
+        var mezcla = oscuro ? Math.max(p.vida - 0.55, 0) / 0.45 : 0;
+        var c = rgb.map(function (v) { return Math.round(v + (255 - v) * mezcla); });
+        var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 2.2);
+        g.addColorStop(0, 'rgba(' + c.join(',') + ',' + (p.vida * 0.9) + ')');
+        g.addColorStop(1, 'rgba(' + c.join(',') + ',0)');
+        ctx.fillStyle = g;
         ctx.beginPath();
-        ctx.moveTo(puntos[i - 1].x, puntos[i - 1].y);
-        ctx.lineTo(puntos[i].x, puntos[i].y);
-        ctx.stroke();
-      }
-      ctx.shadowBlur = 0;
-      // Destellos: pequeñas estrellas que caen y se apagan.
-      chispas = chispas.filter(function (c) { return c.vida > 0; });
-      chispas.forEach(function (c) {
-        c.x += c.vx; c.y += c.vy; c.vy += 0.03; c.vida -= 0.025;
-        var r = c.r * c.vida;
-        ctx.fillStyle = conAlfa(Math.max(c.vida, 0));
-        ctx.beginPath();
-        ctx.moveTo(c.x, c.y - r);
-        ctx.quadraticCurveTo(c.x, c.y, c.x + r, c.y);
-        ctx.quadraticCurveTo(c.x, c.y, c.x, c.y + r);
-        ctx.quadraticCurveTo(c.x, c.y, c.x - r, c.y);
-        ctx.quadraticCurveTo(c.x, c.y, c.x, c.y - r);
+        ctx.arc(p.x, p.y, r * 2.2, 0, Math.PI * 2);
         ctx.fill();
       });
-      if (puntos.length || chispas.length) requestAnimationFrame(dibujar);
+      ctx.globalCompositeOperation = 'source-over';
+      if (particulas.length) requestAnimationFrame(dibujar);
       else { animando = false; ctx.clearRect(0, 0, innerWidth, innerHeight); }
     }
 
@@ -103,15 +96,25 @@
     window.addEventListener('mousemove', function (e) {
       cursor.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
       if (!visible) { visible = true; raiz.classList.add('con-cursor'); }
-      puntos.push({ x: e.clientX, y: e.clientY, t: performance.now() });
-      var rapidez = ultimo ? Math.hypot(e.clientX - ultimo.x, e.clientY - ultimo.y) : 0;
-      if (rapidez > 6 && Math.random() < 0.55) {
-        chispas.push({ x: e.clientX, y: e.clientY, vx: (Math.random() - 0.5) * 1.2, vy: Math.random() * 0.6, r: 2.5 + Math.random() * 4, vida: 1 });
+      if (ultimo) {
+        var dx = e.clientX - ultimo.x;
+        var dy = e.clientY - ultimo.y;
+        var rapidez = Math.hypot(dx, dy);
+        if (rapidez > 1.5) {
+          var angulo = Math.atan2(-dy, -dx); // hacia atrás del movimiento
+          var cantidad = Math.min(1 + Math.floor(rapidez / 14), 3);
+          for (var k = 0; k < cantidad; k++) {
+            var a = angulo + (Math.random() - 0.5) * 0.7;
+            var v = 0.8 + Math.random() * Math.min(rapidez / 8, 2.4);
+            particulas.push({ x: e.clientX, y: e.clientY, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 1.6 + Math.random() * 1.8, vida: 1 });
+          }
+          if (particulas.length > 90) particulas.splice(0, particulas.length - 90);
+          if (!animando) { animando = true; requestAnimationFrame(dibujar); }
+        }
       }
       ultimo = { x: e.clientX, y: e.clientY };
-      if (!animando) { animando = true; requestAnimationFrame(dibujar); }
     });
-    document.addEventListener('mouseleave', function () { visible = false; raiz.classList.remove('con-cursor'); });
+    document.addEventListener('mouseleave', function () { visible = false; ultimo = null; raiz.classList.remove('con-cursor'); });
     document.addEventListener('mouseover', function (e) {
       cursor.classList.toggle('cursor--hover', !!e.target.closest('a, button, label, input'));
     });
@@ -175,10 +178,8 @@
   var encabezado = document.getElementById('encabezado');
   var menu = document.querySelector('.menu-movil');
   var yAnterior = window.scrollY;
-  var capasBanda = Array.prototype.slice.call(document.querySelectorAll('[data-paralaje]'));
+  var capasParalaje = Array.prototype.slice.call(document.querySelectorAll('[data-paralaje]'));
   var volver = document.querySelector('.volver-arriba');
-  var banner = document.querySelector('.banner');
-  var bannerImagen = document.querySelector('.banner__imagen');
   var enlaces = Array.prototype.slice.call(document.querySelectorAll('.navegacion__enlace'));
   var secciones = enlaces.map(function (a) { return document.querySelector(a.getAttribute('href')); });
   var pendiente = false;
@@ -191,15 +192,8 @@
       yAnterior = y;
     }
     volver.classList.toggle('volver-arriba--visible', y > 400);
-    if (!sinMovimiento && banner) {
-      var caja = banner.getBoundingClientRect();
-      if (caja.bottom > 0 && caja.top < window.innerHeight) {
-        var avance = (window.innerHeight - caja.top) / (window.innerHeight + caja.height);
-        bannerImagen.style.transform = 'translate3d(0,' + ((0.5 - avance) * 0.4 * caja.height) + 'px,0)';
-      }
-    }
     if (!sinMovimiento) {
-      capasBanda.forEach(function (capa) {
+      capasParalaje.forEach(function (capa) {
         var c = capa.parentElement.getBoundingClientRect();
         if (c.bottom < 0 || c.top > window.innerHeight) return;
         var desfase = window.innerHeight / 2 - (c.top + c.height / 2);

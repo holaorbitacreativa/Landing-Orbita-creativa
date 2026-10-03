@@ -247,27 +247,26 @@
       </div>
     </section>
 
-    <!-- Banda de servicios: ilustración estática con paralaje por capas -->
-    <div class="banda" aria-label="Servicios: branding, diseño web, UX/UI, redes sociales, creación de contenido, apps y estrategia digital" role="img">
-      <svg class="banda__orbitas" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true">
-        <ellipse cx="720" cy="330" rx="760" ry="300" /><ellipse cx="720" cy="330" rx="560" ry="200" /><ellipse cx="720" cy="330" rx="360" ry="130" />
-      </svg>
-      <div class="banda__capa" data-paralaje="-0.04" aria-hidden="true">
-        <span class="banda__chip" style="--x:5%;--y:30%">Branding</span>
-        <span class="banda__chip banda__chip--contorno" style="--x:31%;--y:40%">UX/UI</span>
-        <span class="banda__chip" style="--x:57%;--y:30%">Creación de contenido</span>
-        <span class="banda__chip banda__chip--oscuro banda__chip--extra" style="--x:88%;--y:36%">Estrategia digital</span>
-      </div>
+    <!-- Banda de servicios: ilustración de Figma en capas con paralaje -->
+    <div class="banda" role="img" aria-label="Servicios: branding, diseño web, UX/UI, redes sociales, creación de contenido, apps y estrategia digital">
+      <img class="banda__capa banda__capa--fondo" data-paralaje="0.25" src="img/banda/fondo.svg" alt="" />
+      <img class="banda__capa banda__capa--orbitas" data-paralaje="0.14" src="img/banda/orbitas.svg" alt="" />
       <div class="banda__capa" data-paralaje="0.05" aria-hidden="true">
-        <span class="banda__chip banda__chip--oscuro" style="--x:17%;--y:62%">Diseño web</span>
-        <span class="banda__chip banda__chip--lima" style="--x:41%;--y:64%">Redes sociales</span>
-        <span class="banda__chip banda__chip--contorno banda__chip--extra" style="--x:79%;--y:60%">Apps</span>
+        <span class="banda__chip" style="--x:4.2%;--y:22%">Branding</span>
+        <span class="banda__chip banda__chip--contorno" style="--x:30%;--y:34.5%">UX/UI</span>
+        <span class="banda__chip" style="--x:56.6%;--y:25%">Creación de contenido</span>
+        <span class="banda__chip banda__chip--oscuro" style="--x:87.8%;--y:31%">Estrategia digital</span>
       </div>
-      <div class="banda__capa" data-paralaje="0.1" aria-hidden="true">
-        <span class="banda__chispa" style="--x:30%;--y:22%;--t:18px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
-        <span class="banda__chispa banda__chispa--lima" style="--x:62%;--y:70%;--t:28px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
-        <span class="banda__chispa" style="--x:94%;--y:72%;--t:22px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
-        <span class="banda__punto" style="--x:20%;--y:82%"></span>
+      <div class="banda__capa" data-paralaje="-0.02" aria-hidden="true">
+        <span class="banda__chip banda__chip--oscuro" style="--x:16.3%;--y:59.5%">Diseño web</span>
+        <span class="banda__chip banda__chip--lima" style="--x:39.7%;--y:62.5%">Redes sociales</span>
+        <span class="banda__chip banda__chip--contorno" style="--x:78.9%;--y:56%">Apps</span>
+      </div>
+      <div class="banda__capa" data-paralaje="-0.1" aria-hidden="true">
+        <span class="banda__chispa" style="--x:28.3%;--y:13.7%;--t:24px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
+        <span class="banda__chispa banda__chispa--lima" style="--x:60.1%;--y:67%;--t:39px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
+        <span class="banda__chispa" style="--x:94.3%;--y:72%;--t:30px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
+        <span class="banda__punto" style="--x:18.3%;--y:81.6%"></span>
       </div>
     </div>
 
@@ -345,9 +344,18 @@
       </div>
     </section>
 
-    <!-- Banner con ilustración (paralaje suave) -->
+    <!-- Galaxia: ilustración vectorial de Figma en capas con paralaje -->
     <div class="banner" aria-hidden="true">
-      <img class="banner__imagen" src="img/banner.webp" alt="" width="1440" height="600" loading="lazy" />
+      <img class="banner__capa banner__capa--fondo" data-paralaje="0.12" src="img/galaxia/fondo.svg" alt="" />
+      <img class="banner__capa" data-paralaje="0.08" src="img/galaxia/orbitas.svg" alt="" />
+      <img class="banner__capa" data-paralaje="0.03" src="img/galaxia/planeta.svg" alt="" />
+      <svg class="banner__capa" data-paralaje="0.03" viewBox="0 -120 1920 1040" preserveAspectRatio="xMidYMid slice"><path class="estrella-giratoria relleno-lima" d="M960 330C960 376.667 983.333 400 1030 400C983.333 400 960 423.333 960 470C960 423.333 936.667 400 890 400C936.667 400 960 376.667 960 330Z"/></svg>
+      <img class="banner__capa" data-paralaje="-0.05" src="img/galaxia/lunas.svg" alt="" />
+      <svg class="banner__capa" data-paralaje="-0.12" viewBox="0 -120 1920 1040" preserveAspectRatio="xMidYMid slice">
+        <path class="estrella-giratoria relleno-blanco" d="M1700 130C1700 150 1710 160 1730 160C1710 160 1700 170 1700 190C1700 170 1690 160 1670 160C1690 160 1700 150 1700 130Z"/>
+        <path class="estrella-giratoria relleno-lima" d="M240 598C240 612.667 247.333 620 262 620C247.333 620 240 627.333 240 642C240 627.333 232.667 620 218 620C232.667 620 240 612.667 240 598Z"/>
+        <path class="estrella-giratoria relleno-blanco" d="M1260 642C1260 654 1266 660 1278 660C1266 660 1260 666 1260 678C1260 666 1254 660 1242 660C1254 660 1260 654 1260 642Z"/>
+      </svg>
     </div>
 
     <!-- Paquetes -->
