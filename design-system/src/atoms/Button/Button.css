@@ -1,4 +1,8 @@
 .oc-boton {
+  --oc-boton-relleno: var(--oc-acento-primario-hover);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -10,25 +14,37 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color var(--oc-transicion), box-shadow var(--oc-transicion), transform var(--oc-transicion);
+  transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out, box-shadow var(--oc-transicion), transform var(--oc-transicion);
 }
+/* Hover del template: un círculo de color crece desde el centro y llena el botón. */
+.oc-boton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--oc-boton-relleno);
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.8s cubic-bezier(0, 0.96, 0.58, 1.1);
+}
+.oc-boton:hover::after { clip-path: circle(100% at 50% 50%); transition-duration: 4s; }
 .oc-boton:focus-visible { outline: none; box-shadow: var(--oc-foco); }
 .oc-boton:active { transform: translateY(1px); }
 .oc-boton[aria-disabled='true'],
 .oc-boton:disabled { opacity: 0.5; cursor: not-allowed; }
+.oc-boton[aria-disabled='true']::after,
+.oc-boton:disabled::after { display: none; }
 .oc-boton--ancho { width: 100%; }
 
-/* Primario: la única acción principal de la sección. */
+/* Primario: la única acción principal de la sección. Se oscurece al pasar el cursor. */
 .oc-boton--primario { background: var(--oc-acento-primario); color: var(--oc-texto-sobre-acento); }
-.oc-boton--primario:hover { background: var(--oc-acento-primario-hover); box-shadow: var(--oc-sombra-suave); }
+.oc-boton--primario:hover { box-shadow: var(--oc-sombra-suave); }
 
-/* Secundario: acciones de apoyo. Contorno neutro, nunca relleno azul. */
-.oc-boton--secundario { background: var(--oc-fondo-superficie); color: var(--oc-texto-principal); border-color: var(--oc-borde-default); }
-.oc-boton--secundario:hover { background: var(--oc-fondo-superficie-alt); }
+/* Secundario: acciones de apoyo. Contorno neutro en reposo; solo se llena de azul al interactuar. */
+.oc-boton--secundario { --oc-boton-relleno: var(--oc-acento-primario); background: var(--oc-fondo-superficie); color: var(--oc-texto-principal); border-color: var(--oc-borde-default); }
+.oc-boton--secundario:hover { color: var(--oc-texto-sobre-acento); border-color: var(--oc-acento-primario); }
 
 /* Fantasma: enlaces con forma de botón. */
-.oc-boton--fantasma { background: transparent; color: var(--oc-texto-acento); }
-.oc-boton--fantasma:hover { background: var(--oc-acento-suave); }
+.oc-boton--fantasma { --oc-boton-relleno: var(--oc-acento-suave); background: transparent; color: var(--oc-texto-acento); }
 
 .oc-boton__flecha { transition: transform var(--oc-transicion); }
 .oc-boton:hover .oc-boton__flecha { transform: translateX(3px); }

@@ -12,7 +12,7 @@ export function Stat({ icon, value, label }: StatProps) {
   return (
     <div className="oc-dato">
       <span className="oc-dato__icono">
-        <Icon name={icon} size={44} />
+        <Icon name={icon} size={28} />
       </span>
       <span className="oc-dato__divisor" aria-hidden />
       <div>

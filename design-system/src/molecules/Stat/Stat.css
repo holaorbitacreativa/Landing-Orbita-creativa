@@ -1,19 +1,24 @@
-.oc-dato { display: flex; align-items: center; gap: 28px; }
+/* Icono, divisor y texto comparten la misma altura para que los datos queden alineados en fila. */
+.oc-dato { display: flex; align-items: flex-start; gap: 20px; }
 .oc-dato__icono {
   display: grid;
   place-items: center;
-  width: 100px;
-  height: 100px;
+  width: 72px;
+  height: 72px;
   flex: none;
-  border-radius: 50% 50% 50% 12px;
+  border-radius: 50% 50% 50% 10px;
   background: var(--oc-acento-suave);
   color: var(--oc-texto-acento);
 }
-.oc-dato__divisor { width: 1px; align-self: stretch; background: var(--oc-borde-default); }
-.oc-dato__valor { margin: 0; font: 500 72px/1 var(--oc-fuente); color: var(--oc-texto-principal); }
-.oc-dato__etiqueta { margin: 4px 0 0; font: 400 24px/1.2 var(--oc-fuente); color: var(--oc-texto-secundario); }
+.oc-dato__icono svg { width: 28px; height: 28px; }
+.oc-dato__divisor { width: 1px; height: 72px; flex: none; background: var(--oc-borde-default); }
+.oc-dato__valor { margin: 0; font: 600 52px/1 var(--oc-fuente); letter-spacing: -0.02em; color: var(--oc-texto-principal); }
+.oc-dato__etiqueta { margin: 6px 0 0; font: 400 17px/1.35 var(--oc-fuente); color: var(--oc-texto-secundario); }
 @media (max-width: 768px) {
-  .oc-dato__icono { width: 64px; height: 64px; }
-  .oc-dato__valor { font-size: 48px; }
-  .oc-dato__etiqueta { font-size: 17px; }
+  .oc-dato { gap: 16px; }
+  .oc-dato__icono { width: 56px; height: 56px; }
+  .oc-dato__icono svg { width: 24px; height: 24px; }
+  .oc-dato__divisor { height: 56px; }
+  .oc-dato__valor { font-size: 40px; }
+  .oc-dato__etiqueta { font-size: 15px; }
 }

@@ -32,9 +32,11 @@
     <div class="precarga__paneles"><span></span><span></span><span></span><span></span></div>
   </div>
 
-  <!-- Cursor personalizado (solo con mouse). -->
-  <div class="cursor cursor--exterior" aria-hidden="true"></div>
-  <div class="cursor cursor--interior" aria-hidden="true"></div>
+  <!-- Cursor de estrella con estela de estrella fugaz (solo con mouse). -->
+  <canvas class="estela" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true">
+    <svg class="cursor__estrella" width="22" height="22" viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg>
+  </div>
 
   <a class="saltar" href="#contenido">Saltar al contenido</a>
 
@@ -245,15 +247,27 @@
       </div>
     </section>
 
-    <!-- Banda de servicios: chips en movimiento continuo -->
-    <div class="banda" aria-hidden="true">
-      <div class="banda__pista">
-        <div class="banda__grupo">
-          <span class="banda__chip">Branding</span><span class="banda__chip banda__chip--oscuro">Diseño web</span><span class="banda__chip banda__chip--contorno">UX/UI</span><span class="banda__chip banda__chip--lima">Redes sociales</span><span class="banda__chip">Creación de contenido</span><span class="banda__chip banda__chip--contorno">Apps</span><span class="banda__chip banda__chip--oscuro">Estrategia digital</span>
-        </div>
-        <div class="banda__grupo">
-          <span class="banda__chip">Branding</span><span class="banda__chip banda__chip--oscuro">Diseño web</span><span class="banda__chip banda__chip--contorno">UX/UI</span><span class="banda__chip banda__chip--lima">Redes sociales</span><span class="banda__chip">Creación de contenido</span><span class="banda__chip banda__chip--contorno">Apps</span><span class="banda__chip banda__chip--oscuro">Estrategia digital</span>
-        </div>
+    <!-- Banda de servicios: ilustración estática con paralaje por capas -->
+    <div class="banda" aria-label="Servicios: branding, diseño web, UX/UI, redes sociales, creación de contenido, apps y estrategia digital" role="img">
+      <svg class="banda__orbitas" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true">
+        <ellipse cx="720" cy="330" rx="760" ry="300" /><ellipse cx="720" cy="330" rx="560" ry="200" /><ellipse cx="720" cy="330" rx="360" ry="130" />
+      </svg>
+      <div class="banda__capa" data-paralaje="-0.04" aria-hidden="true">
+        <span class="banda__chip" style="--x:5%;--y:30%">Branding</span>
+        <span class="banda__chip banda__chip--contorno" style="--x:31%;--y:40%">UX/UI</span>
+        <span class="banda__chip" style="--x:57%;--y:30%">Creación de contenido</span>
+        <span class="banda__chip banda__chip--oscuro banda__chip--extra" style="--x:88%;--y:36%">Estrategia digital</span>
+      </div>
+      <div class="banda__capa" data-paralaje="0.05" aria-hidden="true">
+        <span class="banda__chip banda__chip--oscuro" style="--x:17%;--y:62%">Diseño web</span>
+        <span class="banda__chip banda__chip--lima" style="--x:41%;--y:64%">Redes sociales</span>
+        <span class="banda__chip banda__chip--contorno banda__chip--extra" style="--x:79%;--y:60%">Apps</span>
+      </div>
+      <div class="banda__capa" data-paralaje="0.1" aria-hidden="true">
+        <span class="banda__chispa" style="--x:30%;--y:22%;--t:18px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
+        <span class="banda__chispa banda__chispa--lima" style="--x:62%;--y:70%;--t:28px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
+        <span class="banda__chispa" style="--x:94%;--y:72%;--t:22px"><svg viewBox="0 0 22 22"><path d="M11 0Q11 11 22 11Q11 11 11 22Q11 11 0 11Q11 11 11 0Z" fill="currentColor"/></svg></span>
+        <span class="banda__punto" style="--x:20%;--y:82%"></span>
       </div>
     </div>
 
