@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="xMidYMid slice" width="1920" height="960" viewBox="0 -320 1920 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M960 503C1189.75 503 1376 438.977 1376 360C1376 281.023 1189.75 217 960 217C730.25 217 544 281.023 544 360C544 438.977 730.25 503 960 503Z" stroke="white" stroke-opacity="0.3" stroke-width="2"/>
+<path d="M960 591C1331.14 591 1632 487.578 1632 360C1632 232.422 1331.14 129 960 129C588.865 129 288 232.422 288 360C288 487.578 588.865 591 960 591Z" stroke="white" stroke-opacity="0.2" stroke-width="2"/>
+<path d="M960 690C1490.19 690 1920 542.254 1920 360C1920 177.746 1490.19 30 960 30C429.807 30 0 177.746 0 360C0 542.254 429.807 690 960 690Z" stroke="white" stroke-opacity="0.2" stroke-width="2"/>
+<path d="M960 811C1684.6 811 2272 609.08 2272 360C2272 110.92 1684.6 -91 960 -91C235.402 -91 -352 110.92 -352 360C-352 609.08 235.402 811 960 811Z" stroke="white" stroke-opacity="0.1" stroke-width="2"/>
+
+</svg>

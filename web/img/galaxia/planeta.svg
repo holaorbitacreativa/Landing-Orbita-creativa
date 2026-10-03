@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="xMidYMid slice" width="1920" height="1040" viewBox="0 -120 1920 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M960 550C1042.84 550 1110 482.843 1110 400C1110 317.157 1042.84 250 960 250C877.157 250 810 317.157 810 400C810 482.843 877.157 550 960 550Z" fill="url(#paint3_linear_22_50)"/>
+<defs>
+<linearGradient id="paint0_linear_22_50" x1="0" y1="0" x2="568.047" y2="1363.31" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0E0F1D"/>
+<stop offset="1" stop-color="#1B1E48"/>
+</linearGradient>
+<radialGradient id="paint1_radial_22_50" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1350 380) scale(520)">
+<stop stop-color="#3D6BF5" stop-opacity="0.7"/>
+<stop offset="1" stop-color="#3D6BF5" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint2_radial_22_50" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 620) scale(420)">
+<stop stop-color="#A99BFF" stop-opacity="0.6"/>
+<stop offset="1" stop-color="#A99BFF" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint3_linear_22_50" x1="810" y1="250" x2="1110" y2="550" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3D6BF5"/>
+<stop offset="1" stop-color="#A99BFF"/>
+</linearGradient>
+</defs>
+</svg>
