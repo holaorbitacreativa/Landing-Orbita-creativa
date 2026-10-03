@@ -210,6 +210,27 @@
   alDesplazar();
   volver.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: sinMovimiento ? 'auto' : 'smooth' }); });
 
+  /* ───────── Luna que orbita el anillo de contacto ───────── */
+  var luna = document.querySelector('.contacto__luna');
+  if (luna && !sinMovimiento) {
+    var orbitando = false;
+    var angulo = 0;
+    var ultimoT = null;
+    function moverLuna(t) {
+      if (!orbitando) { ultimoT = null; return; }
+      if (ultimoT !== null) angulo += (t - ultimoT) * 0.0004; // una vuelta cada ~16 s
+      ultimoT = t;
+      luna.style.left = (50 + 50 * Math.cos(angulo)) + '%';
+      luna.style.top = (50 + 50 * Math.sin(angulo)) + '%';
+      requestAnimationFrame(moverLuna);
+    }
+    new IntersectionObserver(function (entradas) {
+      var antes = orbitando;
+      orbitando = entradas[0].isIntersecting;
+      if (orbitando && !antes) requestAnimationFrame(moverLuna);
+    }).observe(document.getElementById('contacto'));
+  }
+
   /* ───────── Menú móvil ───────── */
   var navegacion = document.getElementById('navegacion');
   function cerrarMenu() {

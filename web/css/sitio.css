@@ -106,6 +106,7 @@ html:not(.js) .precarga { display: none; }
 .hero__chispa { fill: var(--oc-lima-400); }
 .hero__satelite { transform-origin: 93px 43px; animation: orbitar 6s linear infinite; }
 @keyframes orbitar { to { transform: rotate(360deg); } }
+@keyframes desplazar { from { translate: 0; } to { translate: -50%; } }
 .hero__imagen { overflow: hidden; }
 .hero__imagen img { width: 100%; height: clamp(220px, 26vw, 380px); object-fit: cover; }
 
@@ -156,7 +157,10 @@ html:not(.js) .precarga { display: none; }
 .proyectos { padding-block: var(--sitio-seccion); }
 .proyectos__titulo { display: grid; justify-items: center; margin: 0 0 clamp(64px, 8vw, 120px); color: var(--oc-texto-principal); text-align: center; }
 .proyectos__linea { display: inline-flex; align-items: center; gap: var(--oc-espacio-6); padding-left: clamp(0px, 10vw, 140px); }
-.proyectos__estrella { color: var(--oc-acento-lima); animation: girar 8s linear infinite; }
+.proyectos__asterisco { width: clamp(48px, 6vw, 91px); height: auto; flex: none; animation: palpitar 1.8s ease-in-out infinite; }
+.proyectos__asterisco-trazo { fill: none; stroke: var(--oc-noche-500); stroke-width: 6.3; stroke-linecap: round; }
+/* Latido suave: dos pulsos cortos y una pausa. */
+@keyframes palpitar { 0%, 40%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 28% { transform: scale(1.04); } }
 .proyectos__acento { color: var(--oc-texto-principal); }
 .proyecto { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; margin-bottom: clamp(64px, 8vw, 120px); }
 .proyecto--invertido .proyecto__imagen { order: 2; }
@@ -201,7 +205,9 @@ html:not(.js) .precarga { display: none; }
 
 /* ───────── Contacto / agenda ───────── */
 .contacto { position: relative; overflow: hidden; padding-block: var(--sitio-seccion); background: radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--oc-azul-300) 30%, transparent), transparent 40%), radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--oc-lila-400) 25%, transparent), transparent 35%), var(--oc-fondo-pagina); }
-.contacto__orbita { position: absolute; left: -10%; right: -10%; top: 45%; height: 50%; border: 1px solid var(--oc-borde-default); border-radius: 50%; transform: rotate(6deg); }
+.contacto__orbita { position: absolute; left: -3%; right: -3%; top: 45%; height: 50%; border: 1px solid var(--oc-borde-default); border-radius: 50%; transform: rotate(6deg); }
+/* Luna que recorre el anillo (como el satélite de la pill del hero); main.js la mueve sobre la elipse. */
+.contacto__luna { position: absolute; left: 100%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--oc-acento-estrella); box-shadow: 0 0 0 5px color-mix(in srgb, var(--oc-acento-estrella) 20%, transparent), 0 0 18px color-mix(in srgb, var(--oc-acento-estrella) 60%, transparent); }
 .contacto__grid { position: relative; display: grid; grid-template-columns: 1fr 470px; gap: clamp(40px, 6vw, 96px); align-items: center; }
 .contacto__titulo { margin: var(--oc-espacio-6) 0; color: var(--oc-texto-principal); font-size: clamp(44px, 5.5vw, 72px); }
 .contacto__intro { max-width: 480px; margin: 0 0 var(--oc-espacio-6); color: var(--oc-texto-secundario); font: 400 20px/1.6 var(--oc-fuente); }
@@ -253,7 +259,7 @@ html:not(.js) .precarga { display: none; }
 .pie__redes a:hover { background: rgb(255 255 255 / 0.18); }
 
 /* ───────── Volver arriba ───────── */
-.volver-arriba { position: fixed; right: 28px; bottom: 28px; z-index: 90; display: grid; place-items: center; width: 50px; height: 50px; border: 0; border-radius: 50%; background: var(--oc-acento-primario); color: var(--oc-texto-sobre-acento); box-shadow: var(--oc-sombra-elevada); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background var(--oc-transicion); }
+.volver-arriba { position: fixed; right: 28px; bottom: 112px; z-index: 90; display: grid; place-items: center; width: 50px; height: 50px; border: 0; border-radius: 50%; background: var(--oc-acento-primario); color: var(--oc-texto-sobre-acento); box-shadow: var(--oc-sombra-elevada); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background var(--oc-transicion); }
 .volver-arriba--visible { opacity: 1; visibility: visible; transform: none; }
 .volver-arriba:hover { background: var(--oc-acento-primario-hover); }
 
@@ -299,7 +305,6 @@ html:not(.js) .precarga { display: none; }
   .nosotros__cuerpo, .nosotros__datos, .faq__grid, .proyecto { grid-template-columns: 1fr; }
   .proyecto--invertido .proyecto__imagen { order: 0; }
   .proyectos__linea { padding-left: 0; }
-  .proyectos__estrella { width: 28px; height: 28px; }
   .encabezado__barra { padding-left: 20px; }
   .banda { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 12px 10px; height: auto; padding: 48px 16px; }
   div.banda__capa { display: contents; }
@@ -312,7 +317,7 @@ html:not(.js) .precarga { display: none; }
   .agenda__calendario .oc-dia { width: 38px; height: 38px; font-size: 14px; }
   .pie__grid { grid-template-columns: 1fr; }
   .pie__base { flex-direction: column; text-align: center; }
-  .volver-arriba { right: 16px; bottom: 16px; }
+  .volver-arriba { right: 16px; bottom: 96px; }
 }
 
 /* Sin animaciones si la persona lo pide. */
